@@ -1,13 +1,11 @@
 <script>
-	export let options = [0];
+	import Select from 'svelte-select';
+	export let items = [0];
 	export let value = options[0];
+
+	function handleSelect(event) {
+		value = event.detail;
+	}
 </script>
 
-
-<select bind:value={value}>
-	{#each options as opt}
-	<option value='{opt}'>
-		{opt}	
-	</option>
-	{/each}
-</select>
+<Select {items} {value} on:select={handleSelect}></Select>
