@@ -1,5 +1,4 @@
 <script>
-  import logo from './assets/svelte.png'
   import Travel from './lib/Travel.svelte'
   import Meter from './lib/Meter.svelte'
 
