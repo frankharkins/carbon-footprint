@@ -1,5 +1,6 @@
 <script>
 	import Dropdown from './Dropdown.svelte';
+	import Panel from './Panel.svelte';
 	export let total_carbon;
 	
 	// define choices user can select from
@@ -44,13 +45,14 @@
 
 	$: total_carbon = sum_carbon(transport_modes);
 </script>
-
-{#each transport_modes as mode}
-	<p>Number of
-	<Dropdown bind:value={mode.units} items={distance_units}/>
-	travelled by {mode.label} per
-	<Dropdown bind:value={mode.period} items={time_units}/>
-	:</p>
-	<input type='number' min='0' bind:value={mode.distance}>
-{/each}
-<p>Your travel emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
+<Panel>
+	{#each transport_modes as mode}
+		<p>Number of
+		<Dropdown bind:value={mode.units} items={distance_units}/>
+		travelled by {mode.label} per
+		<Dropdown bind:value={mode.period} items={time_units}/>
+		:</p>
+		<input type='number' min='0' bind:value={mode.distance}>
+	{/each}
+	<p>Your travel emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
+</Panel>
