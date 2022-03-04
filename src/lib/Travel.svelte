@@ -45,7 +45,7 @@
 
 	$: total_carbon = sum_carbon(transport_modes);
 </script>
-<Panel>
+<Panel min_width="300px">
 	{#each transport_modes as mode}
 		<p>Number of
 		<Dropdown bind:value={mode.units} items={distance_units}/>

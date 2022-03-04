@@ -15,9 +15,9 @@
 		{ label: 'year',  value: 1   }
 	];
 	let food_types = [ // 'value' == GHG per 100g
-		{ label: 'beef',   value: 50/100 },
-		{ label: 'cheese', value: 11/100 },
-		{ label: 'tofu',   value:  2/100 }
+		{ label: 'beef',   value: 0.26*50/100 },
+		{ label: 'cheese', value: 0.25*11/100 },
+		{ label: 'tofu',   value:   0.8*2/100 }
 	];
 	for (let i=food_types.length; i--;) {
 		food_types[i].mass = 0;
@@ -29,7 +29,7 @@
 	function get_carbon(food_type) {
 		let mass = food_type.mass;
 		if (food_type.units.value === 'ounces') {
-			mass = mass / 28.35;
+			mass = mass * 28.35;
 		};
 		let per_year = mass * food_type.value;
 		return per_year * food_type.period.value;
@@ -45,10 +45,10 @@
 
 	$: total_carbon = sum_carbon(food_types);
 </script>
-<Panel>
+<Panel min_width="270px">
 	{#each food_types as food}
 		<p>
-		<Dropdown bind:value={food.units} items={mass_units}/>
+		<Dropdown bind:value={food.units} items={mass_units} capitalize={true}/>
 		of {food.label} bought per
 		<Dropdown bind:value={food.period} items={time_units}/>
 		:</p>

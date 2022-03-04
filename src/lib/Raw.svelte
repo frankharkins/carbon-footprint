@@ -15,7 +15,7 @@
 	let carbon = 0;
 	$: total_carbon = carbon * selected_units.value;
 </script>
-<Panel>
+<Panel min_width="290px">
 	<p>Enter additional emissions (in kg) per
 	<Dropdown bind:value={selected_units} items={time_units}/>
 	:</p>

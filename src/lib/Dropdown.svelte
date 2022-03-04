@@ -1,10 +1,10 @@
 <script>
 	export let items = {label: "No values specified", value: 1};
 	export let value = items[0];
+	export let capitalize = false;
 
 	function handleSelect(item) {
 		value = item;
-		console.log(value);
 	}
 </script>
 
@@ -41,7 +41,7 @@
 
 </style>
 
-<span class="dropdown">
+<span class="dropdown" style="{capitalize ? 'text-transform: capitalize;' : ''}">
 	{value.label}
 	<div class="menu">
 		{#each items as item}

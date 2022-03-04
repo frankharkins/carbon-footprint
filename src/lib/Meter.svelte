@@ -2,6 +2,7 @@
 	// TODO:
 	// - Make compatible with chrome & ie
 	export let value = 30;
+	export let max = 1000;
 </script>
 
 <style>
@@ -39,5 +40,5 @@
 </style>
 
 <div class='meter-container'>
-	<input type="range" min="0" max="1000" value="{value*10}" class="meter" disabled="true">
+	<input type="range" min="0" max="{max}" value="{value*10}" class="meter" disabled="true">
 </div>
