@@ -56,4 +56,7 @@
 		<NumberInput bind:value={mode.distance}/>
 	{/each}
 	<p>Your travel emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
+	<div class="footer">
+		<p on:click={() => window.showPopup('travel')}>About this panel</p>
+	</div>
 </Panel>

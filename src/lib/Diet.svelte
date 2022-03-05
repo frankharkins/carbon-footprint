@@ -56,4 +56,7 @@
 		<NumberInput bind:value={food.mass}/>
 	{/each}
 	<p>Your diet emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
+	<div class="footer">
+		<p on:click={() => window.showPopup('diet')}>About this panel</p>
+	</div>
 </Panel>
