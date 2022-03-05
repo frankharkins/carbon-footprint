@@ -1,5 +1,6 @@
 <script>
 	import Dropdown from './Dropdown.svelte';
+	import NumberInput from './NumberInput.svelte';
 	import Panel from './Panel.svelte';
 	export let total_carbon;
 	
@@ -19,5 +20,5 @@
 	<p>Enter additional emissions (in kg) per
 	<Dropdown bind:value={selected_units} items={time_units}/>
 	:</p>
-	<input type='number' min='0' bind:value={carbon}>
+	<NumberInput bind:value={carbon}/>
 </Panel>

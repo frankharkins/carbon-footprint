@@ -1,5 +1,6 @@
 <script>
 	import Dropdown from './Dropdown.svelte';
+	import NumberInput from './NumberInput.svelte';
 	import Panel from './Panel.svelte';
 	export let total_carbon;
 	
@@ -52,7 +53,7 @@
 		of {food.label} bought per
 		<Dropdown bind:value={food.period} items={time_units}/>
 		:</p>
-		<input type='number' min='0' bind:value={food.mass}>
+		<NumberInput bind:value={food.mass}/>
 	{/each}
 	<p>Your diet emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
 </Panel>

@@ -1,5 +1,6 @@
 <script>
 	import Dropdown from './Dropdown.svelte';
+	import NumberInput from './NumberInput.svelte';
 	import Panel from './Panel.svelte';
 	export let total_carbon;
 	
@@ -50,9 +51,9 @@
 		<p>Number of
 		<Dropdown bind:value={mode.units} items={distance_units}/>
 		travelled by {mode.label} per
-		<Dropdown bind:value={mode.period} items={time_units}/>
-		:</p>
-		<input type='number' min='0' bind:value={mode.distance}>
+		<Dropdown bind:value={mode.period} items={time_units}/>:
+		</p>
+		<NumberInput bind:value={mode.distance}/>
 	{/each}
 	<p>Your travel emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
 </Panel>
