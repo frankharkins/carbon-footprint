@@ -2,6 +2,7 @@
 	export let width = "33%";
 	export let min_width = "0";
 	export let margin = "10px";
+	export let on_click = () => void(0);
 </script>
 
 <style>
@@ -30,6 +31,7 @@
      style="width: calc({width} - 60px);
 	    min-width: {min_width};
 	    margin: {margin}"
+     on:click={on_click}
 >
 	<slot></slot>
 </div>

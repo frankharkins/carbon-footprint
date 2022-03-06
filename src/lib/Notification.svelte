@@ -3,6 +3,10 @@
 	import NotificationInfo from './NotificationInfo.svelte';
 	export let info = 'none';
 	
+	function handleClick(event) {
+		event.stopPropagation();
+	};
+	
 </script>
 
 <style>
@@ -14,7 +18,7 @@
 </style>
 
 <div class="centered">
-<Panel width="80%" margin="10%">
+<Panel width="80%" margin="10%" on_click={handleClick}>
 	<NotificationInfo info="{info}"/>
 </Panel>
 </div>

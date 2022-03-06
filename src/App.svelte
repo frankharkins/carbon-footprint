@@ -3,6 +3,18 @@
   import Diet from './lib/Diet.svelte'
   import Raw from './lib/Raw.svelte'
   import ComparisonPanel from './lib/ComparisonPanel.svelte'
+  import Notification from './lib/Notification.svelte'
+
+  let popup = false;
+  let popup_info = 'none';
+
+  window.showPopup = function(info) {
+	popup = true;
+	popup_info = info;
+  };
+  window.hidePopup = function() {
+	popup = false;
+  };
 
   let travel_carbon = 0;
   let diet_carbon = 0;
@@ -24,6 +36,14 @@
 	right: 0;
 	margin: auto auto;
 }
+
+.popup {
+	background: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	margin: -8px;
+}
 </style>
 
 <main>
@@ -32,5 +52,10 @@
 		<Travel bind:total_carbon={travel_carbon}/>
 		<Diet bind:total_carbon={diet_carbon}/>
 		<Raw bind:total_carbon={raw_carbon}/>
+	</div>
+	<div class="popup"
+	     style="display: {popup ? 'table' : 'none'};"
+	     on:click={window.hidePopup}>
+		<Notification info="{popup_info}"/>
 	</div>
 </main>
