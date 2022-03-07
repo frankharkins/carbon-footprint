@@ -1,6 +1,14 @@
 <script>
+	import { getContext } from 'svelte';
 	export let name = 'none';
-	export let state = 'none';
+
+	let appState = getContext('appState')
+	$: state = getContext('appStatesList')[ $appState ];
+
+	function handleClick(event) {
+		appState.update( x => x + 1);
+		console.log($appState);
+	};
 </script>
 
 <style>
@@ -27,8 +35,8 @@
 <div class="footer">
 	<p>
 		<span class="about-button" on:click={() => window.showPopup(name)}>About this panel</span>
-		{#if state === 'required'}
-			<span class="next-button">Next</span>
+		{#if state === name}
+			<span on:click={handleClick} class="next-button">Next</span>
 		{/if}
 	</p>
 </div>

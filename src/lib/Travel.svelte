@@ -1,9 +1,13 @@
 <script>
+	import { getContext } from 'svelte';
 	import Dropdown from './Dropdown.svelte';
 	import NumberInput from './NumberInput.svelte';
 	import Panel from './Panel.svelte';
 	import PanelFooter from './PanelFooter.svelte';
 	export let total_carbon;
+	
+	let appState = getContext('appState');
+	let appStatesList = getContext('appStatesList');
 	
 	// define choices user can select from
 	let distance_units = [
@@ -57,5 +61,5 @@
 		<NumberInput bind:value={mode.distance}/>
 	{/each}
 	<p>Your travel emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
-	<PanelFooter name='travel'/>
+	<PanelFooter name='travel' state={appStatesList[ $appState ]}/>
 </Panel>

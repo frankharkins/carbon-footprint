@@ -1,10 +1,19 @@
 <script>
+  import { setContext } from 'svelte';
+  import { writable } from 'svelte/store';
   import Travel from './lib/Travel.svelte'
   import Diet from './lib/Diet.svelte'
   import Raw from './lib/Raw.svelte'
   import ComparisonPanel from './lib/ComparisonPanel.svelte'
   import Notification from './lib/Notification.svelte'
 
+  // Handle app state (todo: find a way to put this in an object)
+  const appState = writable(0);
+  setContext('appState', appState);
+  const appStatesList = ['travel', 'diet', 'raw', 'play'];
+  setContext('appStatesList', appStatesList);
+
+  // Handle popup notifications
   let popup = false;
   let popup_info = 'none';
 
@@ -16,6 +25,7 @@
 	popup = false;
   };
 
+  // Handle carbon calculations
   let travel_carbon = 0;
   let diet_carbon = 0;
   let raw_carbon = 0;
