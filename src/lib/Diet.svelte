@@ -1,8 +1,7 @@
 <script>
 	import Dropdown from './Dropdown.svelte';
 	import NumberInput from './NumberInput.svelte';
-	import Panel from './Panel.svelte';
-	import PanelFooter from './PanelFooter.svelte';
+	import MiniCalcWrapper from './MiniCalcWrapper.svelte';
 	export let total_carbon;
 	
 	// define choices user can select from
@@ -47,7 +46,7 @@
 
 	$: total_carbon = sum_carbon(food_types);
 </script>
-<Panel min_width="270px">
+<MiniCalcWrapper name="diet" min_width="270px">
 	{#each food_types as food}
 		<p>
 		<Dropdown bind:value={food.units} items={mass_units} capitalize={true}/>
@@ -57,5 +56,4 @@
 		<NumberInput bind:value={food.mass}/>
 	{/each}
 	<p>Your diet emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
-	<PanelFooter name='diet'/>
-</Panel>
+</MiniCalcWrapper>

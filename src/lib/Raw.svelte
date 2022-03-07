@@ -1,7 +1,7 @@
 <script>
 	import Dropdown from './Dropdown.svelte';
 	import NumberInput from './NumberInput.svelte';
-	import Panel from './Panel.svelte';
+	import MiniCalcWrapper from './MiniCalcWrapper.svelte';
 	export let total_carbon;
 	
 	// user can choose time period
@@ -16,9 +16,9 @@
 	let carbon = 0;
 	$: total_carbon = carbon * selected_units.value;
 </script>
-<Panel min_width="290px">
+<MiniCalcWrapper name="raw" min_width="290px">
 	<p>Enter additional emissions (in kg) per
-	<Dropdown bind:value={selected_units} items={time_units}/>
-	:</p>
+	<Dropdown bind:value={selected_units} items={time_units}/>:
+	</p>
 	<NumberInput bind:value={carbon}/>
-</Panel>
+</MiniCalcWrapper>

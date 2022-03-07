@@ -8,8 +8,8 @@
   import Notification from './lib/Notification.svelte'
 
   // Handle app state (todo: find a way to put this in an object)
-  const appState = writable(0);
-  setContext('appState', appState);
+  const appStateNum = writable(0);
+  setContext('appStateNum', appStateNum);
   const appStatesList = ['travel', 'diet', 'raw', 'play'];
   setContext('appStatesList', appStatesList);
 

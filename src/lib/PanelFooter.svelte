@@ -2,12 +2,11 @@
 	import { getContext } from 'svelte';
 	export let name = 'none';
 
-	let appState = getContext('appState')
-	$: state = getContext('appStatesList')[ $appState ];
+	let appStateNum = getContext('appStateNum')
+	$: state = getContext('appStatesList')[ $appStateNum ];
 
 	function handleClick(event) {
-		appState.update( x => x + 1);
-		console.log($appState);
+		appStateNum.update( x => x + 1);
 	};
 </script>
 

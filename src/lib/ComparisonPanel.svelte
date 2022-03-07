@@ -1,11 +1,20 @@
 <script>
+	import { getContext } from 'svelte';
 	import Panel from './Panel.svelte'
 	import Meter from './Meter.svelte'
 	export let value = 30;
+
+	let appStateNum = getContext('appStateNum')
+	$: appState = getContext('appStatesList')[ $appStateNum ];
+
 	let max = 150000;
 </script>
 
 <style>
+	div.top-sticky.hidden {
+		display: none;
+	}
+
 	div.top-sticky {
 		position: -webkit-sticky;
 		position: sticky;
@@ -19,7 +28,7 @@
 	}
 </style>
 
-<div class="top-sticky">
+<div class="top-sticky {(appState === 'play') ? 'active' : 'hidden'}">
 	<Panel width="100%">
 		Your footprint:
 		<Meter bind:value={value} max="{max}"/>
