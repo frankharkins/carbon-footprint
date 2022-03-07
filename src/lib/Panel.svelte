@@ -18,13 +18,6 @@
 		margin-top: 0;
 	}
 
-	:global(div.footer > p) {
-		color: grey;
-		font-size: 0.8em;
-		margin-bottom: 0px;
-		cursor: pointer;
-	}
-
 </style>
 
 <div class="panel"

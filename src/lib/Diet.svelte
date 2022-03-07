@@ -2,6 +2,7 @@
 	import Dropdown from './Dropdown.svelte';
 	import NumberInput from './NumberInput.svelte';
 	import Panel from './Panel.svelte';
+	import PanelFooter from './PanelFooter.svelte';
 	export let total_carbon;
 	
 	// define choices user can select from
@@ -56,7 +57,5 @@
 		<NumberInput bind:value={food.mass}/>
 	{/each}
 	<p>Your diet emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
-	<div class="footer">
-		<p on:click={() => window.showPopup('diet')}>About this panel</p>
-	</div>
+	<PanelFooter name='diet'/>
 </Panel>
