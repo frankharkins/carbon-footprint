@@ -1,5 +1,11 @@
 <script>
+	import { getContext } from 'svelte';
+	import Meter from './Meter.svelte';
 	export let value = 0;
+	let finalValue = 0;
+		
+	let appStateNum = getContext('appStateNum')
+	$: state = getContext('appStatesList')[ $appStateNum ];
 
 	function incValue(event) {
 		value = value + 5;
@@ -13,6 +19,14 @@
 			value = 0;
 		}
 	};
+	
+	function getFinalValue(state) {
+		if (state === 'play' && finalValue === 0) {
+			finalValue = value;
+		}
+	};
+	
+	$: getFinalValue(state);
 </script>
 
 <style>
@@ -34,7 +48,7 @@
 		user-select: none;
 	}
 
-	input {
+	input[type=number] {
 		border: none;
 		text-align: right;
 		width: 9em;
@@ -54,7 +68,14 @@
 	}
 </style>
 
+{#if (state === 'play')}
+<div style="width: 100%; touch-action: none;">
+	<span style="margin-left: 10px">{value}</span>
+	<Meter max="{(finalValue < 0.1) ? 100 : finalValue*1.5}" bind:value={value} disabled={false}/>
+</div>
+{:else}
 <div class="input-container">
 	<input type="number" min="0" bind:value={value}>
 	<span class="input-buttons" on:click={incValue}>+</span> <span class="input-buttons" on:click={decValue}>−</span>
 </div>
+{/if}

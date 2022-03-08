@@ -7,7 +7,7 @@
 	let appStateNum = getContext('appStateNum')
 	$: appState = getContext('appStatesList')[ $appStateNum ];
 
-	let max = 150000;
+	let max = 15000;
 </script>
 
 <style>
@@ -31,8 +31,8 @@
 <div class="top-sticky {(appState === 'play') ? 'active' : 'hidden'}">
 	<Panel width="100%">
 		Your footprint:
-		<Meter bind:value={value} max="{max}"/>
+		<Meter bind:value={value} max="{max}" disabled="true"/>
 		UK average:
-		<Meter value="10000" max="{max}"/>
+		<Meter value="10000" max="{max}" disabled="true"/>
 	</Panel>
 </div>

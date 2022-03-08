@@ -23,7 +23,7 @@
 		box-shadow: 0 0 25px -4px orange;
 	}
 
-	:global(.hidden > *) {
+	.hidden {
 		opacity: 0;
 	}
 

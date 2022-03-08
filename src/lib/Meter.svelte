@@ -1,6 +1,7 @@
 <script>
 	// TODO:
 	// - Make compatible with chrome & ie
+	export let disabled = false;
 	export let value = 30;
 	export let max = 1000;
 </script>
@@ -40,5 +41,13 @@
 </style>
 
 <div class='meter-container'>
-	<input type="range" min="0" max="{max}" value="{value*10}" class="meter" disabled="true">
+	<input type="range"
+	       min="0"
+	       max="{max}"
+	       bind:value="{value}"
+	       class="meter"
+	       disabled={disabled}
+	       style="{disabled ? '' : 'cursor: pointer;'}"
+	       >
+
 </div>
