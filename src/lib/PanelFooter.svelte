@@ -7,6 +7,9 @@
 
 	function handleClick(event) {
 		appStateNum.update( x => x + 1);
+		if (state === 'raw') {
+			window.showPopup('comparison');
+		};
 	};
 </script>
 
