@@ -16,6 +16,9 @@
 <style>
 	.dropdown {
 		display: inline-block;
+	}
+
+	.active {
 		cursor: pointer;
 		border-bottom: 1px solid black;
 	}
@@ -36,17 +39,17 @@
 		border-bottom: 1px solid black;
 	}
 
-	.dropdown:hover {
+	.active:hover {
 		border-bottom: 1px solid white;
 	}
 
-	.dropdown:hover > .menu {
+	.active:hover > .menu {
 		visibility: visible;
 	}
 
 </style>
 
-<span class="{(state === 'play') ? '' : 'dropdown'}" style="{capitalize ? 'text-transform: capitalize;' : ''}">
+<span class="dropdown {(state === 'play') ? '' : 'active'}" style="{capitalize ? 'text-transform: capitalize;' : ''}">
 	{value.label}
 	<div class="menu">
 		{#each items as item}
