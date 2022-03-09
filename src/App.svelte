@@ -1,17 +1,10 @@
 <script>
-  import { setContext } from 'svelte';
-  import { writable } from 'svelte/store';
+  import { appState } from './state.js';
   import Travel from './lib/Travel.svelte'
   import Diet from './lib/Diet.svelte'
   import Raw from './lib/Raw.svelte'
   import ComparisonPanel from './lib/ComparisonPanel.svelte'
   import Notification from './lib/Notification.svelte'
-
-  // Handle app state (todo: find a way to put this in an object)
-  const appStateNum = writable(0);
-  setContext('appStateNum', appStateNum);
-  const appStatesList = ['travel', 'diet', 'raw', 'play'];
-  setContext('appStatesList', appStatesList);
 
   // Handle popup notifications
   let popup = false;

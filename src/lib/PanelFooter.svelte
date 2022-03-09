@@ -1,16 +1,6 @@
 <script>
-	import { getContext } from 'svelte';
+	import { appState, nextAppState } from '../state.js';
 	export let name = 'none';
-
-	let appStateNum = getContext('appStateNum')
-	$: state = getContext('appStatesList')[ $appStateNum ];
-
-	function handleClick(event) {
-		appStateNum.update( x => x + 1);
-		if (state === 'raw') {
-			window.showPopup('comparison');
-		};
-	};
 </script>
 
 <style>
@@ -37,8 +27,8 @@
 <div class="footer">
 	<p>
 		<span class="about-button" on:click={() => window.showPopup(name)}>About this panel</span>
-		{#if state === name}
-			<span on:click={handleClick} class="next-button">Next</span>
+		{#if $appState === name}
+			<span on:click={nextAppState} class="next-button">Next</span>
 		{/if}
 	</p>
 </div>

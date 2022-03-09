@@ -1,12 +1,9 @@
 <script>
-	import { getContext } from 'svelte';
+	import { appState } from '../state.js';
 	import Meter from './Meter.svelte';
 	export let value = 0;
 	let finalValue = 0;
 		
-	let appStateNum = getContext('appStateNum')
-	$: state = getContext('appStatesList')[ $appStateNum ];
-
 	function incValue(event) {
 		value = value + 5;
 	};
@@ -26,7 +23,7 @@
 		}
 	};
 	
-	$: getFinalValue(state);
+	$: getFinalValue($appState);
 </script>
 
 <style>
@@ -68,7 +65,7 @@
 	}
 </style>
 
-{#if (state === 'play')}
+{#if ($appState === 'play')}
 <div style="width: 100%; touch-action: none;">
 	<span style="margin-left: 10px">{value}</span>
 	<Meter max="{(finalValue < 0.1) ? 100 : finalValue*1.5}" bind:value={value} disabled={false}/>

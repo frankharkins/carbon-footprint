@@ -1,5 +1,5 @@
 <script>
-	import { getContext } from 'svelte';
+	import { appState } from '../state.js';
 	import Dropdown from './Dropdown.svelte';
 	import NumberInput from './NumberInput.svelte';
 	import Panel from './Panel.svelte';
@@ -7,9 +7,6 @@
 	export let name;
 	export let min_width = "300px";
 	let unlocked = false;
-	
-	let appStateNum = getContext('appStateNum')
-	$: appState = getContext('appStatesList')[ $appStateNum ];
 	
 	function get_panel_state(appState) {
 		if (appState === name) {
@@ -22,7 +19,7 @@
 		}
 	};
 	
-	$: panelState = get_panel_state(appState);
+	$: panelState = get_panel_state($appState);
 
 </script>
 

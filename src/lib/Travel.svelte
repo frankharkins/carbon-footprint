@@ -1,5 +1,4 @@
 <script>
-	import { getContext } from 'svelte';
 	import Dropdown from './Dropdown.svelte';
 	import NumberInput from './NumberInput.svelte';
 	import MiniCalcWrapper from './MiniCalcWrapper.svelte';

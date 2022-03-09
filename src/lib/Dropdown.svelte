@@ -1,5 +1,5 @@
 <script>
-	import { getContext } from 'svelte';
+	import { appState } from '../state.js';
 	export let items = {label: "No values specified", value: 1};
 	export let value = items[0];
 	export let capitalize = false;
@@ -8,9 +8,6 @@
 		value = item;
 	}
 	
-	let appStateNum = getContext('appStateNum')
-	$: state = getContext('appStatesList')[ $appStateNum ];
-
 </script>
 
 <style>
@@ -49,7 +46,7 @@
 
 </style>
 
-<span class="dropdown {(state === 'play') ? '' : 'active'}" style="{capitalize ? 'text-transform: capitalize;' : ''}">
+<span class="dropdown {($appState === 'play') ? '' : 'active'}" style="{capitalize ? 'text-transform: capitalize;' : ''}">
 	{value.label}
 	<div class="menu">
 		{#each items as item}
