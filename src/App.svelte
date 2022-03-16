@@ -1,10 +1,10 @@
 <script>
   import { appState } from './state.js';
-  import Travel from './lib/Travel.svelte'
-  import Diet from './lib/Diet.svelte'
-  import Raw from './lib/Raw.svelte'
-  import ComparisonPanel from './lib/ComparisonPanel.svelte'
-  import Notification from './lib/Notification.svelte'
+  import Travel from './components/Travel.svelte'
+  import Diet from './components/Diet.svelte'
+  import Raw from './components/Raw.svelte'
+  import Comparison from './components/Comparison.svelte'
+  import Notification from './components/Notification.svelte'
 
   // Handle popup notifications
   let popup = false;
@@ -51,7 +51,7 @@
 
 <main>
 	<div class="app-container">
-		<ComparisonPanel bind:value={meter_value}/>
+		<Comparison bind:value={meter_value}/>
 		<Travel bind:total_carbon={travel_carbon}/>
 		<Diet bind:total_carbon={diet_carbon}/>
 		<Raw bind:total_carbon={raw_carbon}/>

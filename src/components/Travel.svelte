@@ -1,7 +1,7 @@
 <script>
-	import Dropdown from './Dropdown.svelte';
-	import NumberInput from './NumberInput.svelte';
-	import MiniCalcWrapper from './MiniCalcWrapper.svelte';
+	import Dropdown from '../lib/Dropdown.svelte';
+	import NumberInput from '../lib/NumberInput.svelte';
+	import MiniCalcWrapper from '../lib/MiniCalcWrapper.svelte';
 	export let total_carbon;
 	
 	// define choices user can select from

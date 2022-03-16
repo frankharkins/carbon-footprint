@@ -1,5 +1,5 @@
 <script>
-	import Panel from './Panel.svelte';
+	import Panel from '../lib/Panel.svelte';
 	import NotificationInfo from './NotificationInfo.svelte';
 	export let info = 'none';
 	
