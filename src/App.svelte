@@ -51,7 +51,7 @@
 
 <main>
 	<div class="app-container">
-		<Comparison bind:value={meter_value}/>
+		<Comparison value={meter_value}/>
 		<Travel bind:total_carbon={travel_carbon}/>
 		<Diet bind:total_carbon={diet_carbon}/>
 		<Raw bind:total_carbon={raw_carbon}/>
@@ -59,6 +59,6 @@
 	<div class="popup"
 	     style="display: {popup ? 'table' : 'none'};"
 	     on:click={window.hidePopup}>
-		<Notification info="{popup_info}"/>
+		<Notification info={popup_info} footprint={meter_value}/>
 	</div>
 </main>

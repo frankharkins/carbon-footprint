@@ -32,7 +32,7 @@
 
 {:else if (info === 'comparison')}
 	<h1 style="margin-top: 0 ;">Results</h1>
-	<p>According to our calculator, your lifestyle contributes ~{carbon/1000} tonnes of CO2 per year.
+	<p>According to our calculator, your lifestyle contributes ~{(carbon/1000).toFixed(1)} tonnes of CO2 per year.
 	The UK average is currently ~10 tonnes, and the world average is ~4 tonnes.</p>
 	<br>
 	Your footprint:
@@ -47,13 +47,13 @@
 	When you're ready, click 'play' to see how adjusting your lifestyle affects your footprint.
 	It's hard to remember to do lots of small things, so try to find three things you can realistically change that have the biggest impact.
 	</p>
-	<br>
-	<div style="text-align: right; font-size: 1.2em; cursor: pointer;"
-	     on:click={window.hidePopup}>Play</div>
 
 {:else}
 	<h2>Notification</h2>
 	<p>We use this popup to show more information about the workings of this app.</p>
 {/if}
 
+<br>
+<div style="text-align: right; font-size: 1.2em; cursor: pointer;"
+     on:click={window.hidePopup}>{(info === 'comparison') ? "Play" : "Close"}</div>
 
