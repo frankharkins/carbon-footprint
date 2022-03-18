@@ -1,5 +1,5 @@
 <script>
-	import { appState } from '../state.js';
+	import { appState } from '../../state.js';
 	import Meter from './Meter.svelte';
 	export let value = 0;
 	let finalValue = 0;

@@ -1,5 +1,5 @@
 <script>
-	import { appState } from '../state.js';
+	import { appState } from '../../state.js';
 	export let items = {label: "No values specified", value: 1};
 	export let value = items[0];
 	export let capitalize = false;

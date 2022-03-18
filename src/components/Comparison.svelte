@@ -1,7 +1,7 @@
 <script>
 	import { appState } from '../state.js'
-	import Panel from '../lib/Panel.svelte'
-	import Meter from '../lib/Meter.svelte'
+	import Panel from './lib/Panel.svelte'
+	import Meter from './lib/Meter.svelte'
 	export let value = 30;
 
 	let max = 15000;

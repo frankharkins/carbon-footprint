@@ -1,5 +1,5 @@
 <script>
-	import Meter from '../lib/Meter.svelte';
+	import Meter from './lib/Meter.svelte';
 	export let info = 'none';
 	export let carbon = 0;
 	let uk_average = 10000;

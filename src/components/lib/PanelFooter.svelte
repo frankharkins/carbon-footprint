@@ -1,5 +1,5 @@
 <script>
-	import { appState, nextAppState } from '../state.js';
+	import { appState, nextAppState } from '../../state.js';
 	export let name = 'none';
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-	import { appState } from '../state.js';
+	import { appState } from '../../state.js';
 	import Dropdown from './Dropdown.svelte';
 	import NumberInput from './NumberInput.svelte';
 	import Panel from './Panel.svelte';
