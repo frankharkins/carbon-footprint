@@ -19,7 +19,7 @@
 </style>
 
 <div class="centered">
-<Panel width="80%" margin="10%" on_click={handleClick}>
+	<Panel width="80%" margin="10%" on_click={handleClick} notification={true}>
 	<NotificationInfo info={info} carbon={footprint}/>
 </Panel>
 </div>

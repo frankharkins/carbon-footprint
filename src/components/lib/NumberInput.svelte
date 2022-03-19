@@ -2,6 +2,7 @@
 	import { appState } from '../../state.js';
 	import Meter from './Meter.svelte';
 	export let value = 0;
+	export let minmax_value = 100;  // smallest maximum value of slider
 	let finalValue = 0;
 		
 	function incValue(event) {
@@ -68,11 +69,11 @@
 {#if ($appState === 'play')}
 <div style="width: 100%; touch-action: none;">
 	<span style="margin-left: 10px">{value}</span>
-	<Meter max="{(finalValue < 0.1) ? 100 : finalValue*1.5}" bind:value={value} disabled={false}/>
+	<Meter max="{Math.max(finalValue*1.5, minmax_value)}" bind:value={value} disabled={false}/>
 </div>
 {:else}
 <div class="input-container">
-	<input type="number" min="0" bind:value={value}>
+	<input type="number" min="0" bind:value={value} on:focus={event => event.target.select()}>
 	<span class="input-buttons" on:click={incValue}>+</span> <span class="input-buttons" on:click={decValue}>−</span>
 </div>
 {/if}

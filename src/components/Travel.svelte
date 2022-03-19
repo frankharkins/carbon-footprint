@@ -18,12 +18,20 @@
 	let transport_modes = [ // 'value' == CO2 per mile
 		{  label: 'car',   value: 0.28  },
 		{  label: 'train', value: 0.07  },
-		{  label: 'bus',   value: 0.1   }
+		{  label: 'bus',   value: 0.1   },
+		{  label: 'plane', value: 0.5   }
 	];
 	for (let i=transport_modes.length; i--;) {
-		transport_modes[i].distance = 0;
-		transport_modes[i].units = distance_units[0];
-		transport_modes[i].period = time_units[1];
+		let mode = transport_modes[i];
+		mode.distance = 0;
+		mode.allowed_units = distance_units;
+		if (mode.label === 'plane') {
+			mode.allowed_units =
+				[{ value: 'hours', label: 'hours' }].concat(mode.allowed_units);
+		};
+		mode.units = mode.allowed_units[0];
+		mode.period = time_units[(mode.label==='plane') ? 3 : 1];
+		console.log(mode);
 	};
 
 	// calculate carbon emissions (kg) and export
@@ -31,6 +39,10 @@
 		let distance = transport_mode.distance;
 		if (transport_mode.units.value === 'km') {
 			distance = distance * 0.62137;
+		}
+		else if (transport_mode.units.value === 'hours') {
+			// only for plane travel
+			distance = distance * 500;
 		};
 		let per_year = distance * transport_mode.value;
 		return per_year * transport_mode.period.value;
@@ -49,12 +61,12 @@
 
 <MiniCalcWrapper name="travel" min_width="300px">
 	{#each transport_modes as mode}
-		<p>Number of
-		<Dropdown bind:value={mode.units} items={distance_units}/>
+		<p>
+		<Dropdown bind:value={mode.units} items={mode.allowed_units} capitalize={true}/>
 		travelled by {mode.label} per
 		<Dropdown bind:value={mode.period} items={time_units}/>:
 		</p>
-		<NumberInput bind:value={mode.distance}/>
+		<NumberInput bind:value={mode.distance} minmax_value={30}/>
 	{/each}
-	<p>Your travel emits ~{total_carbon.toFixed(2)}kg of co2 per year</p>
+	<p>Your travel emits ~{Math.round(total_carbon)}kg of co2 per year</p>
 </MiniCalcWrapper>

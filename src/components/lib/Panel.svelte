@@ -4,18 +4,24 @@
 	export let margin = "10px";
 	export let on_click = () => void(0);
 	export let state = 'active';
+	export let notification = false;
 </script>
 
 <style>
 	.panel {
 		padding: 20px;
 		border-radius: 5px;
-		border: 1px solid transparent;
+		border: 1px solid lightgrey;
 		float: left;
 		box-shadow: 0 0 10px -1px lightgrey;
 		background: white;
 
 		transition-duration: 0.3s;
+	}
+
+	.notification {
+		overflow: auto;
+		max-height: 80vh;
 	}
 
 	.required {
@@ -33,7 +39,7 @@
 
 </style>
 
-<div class="panel {state}"
+<div class="panel {state} {notification ? 'notification' : ''}"
      style="width: calc({width} - 60px);
 	    min-width: {min_width};
 	    margin: {margin}"

@@ -1,6 +1,7 @@
 <script>
   import { appState } from './state.js';
   import Travel from './components/Travel.svelte'
+  import Home from './components/Home.svelte'
   import Diet from './components/Diet.svelte'
   import Raw from './components/Raw.svelte'
   import Comparison from './components/Comparison.svelte'
@@ -20,9 +21,10 @@
 
   // Handle carbon calculations
   let travel_carbon = 0;
+  let home_carbon = 0;
   let diet_carbon = 0;
   let raw_carbon = 0;
-  $: meter_value = (travel_carbon + diet_carbon + raw_carbon);
+  $: meter_value = (home_carbon + travel_carbon + diet_carbon + raw_carbon);
 </script>
 
 <style>
@@ -52,6 +54,7 @@
 <main>
 	<div class="app-container">
 		<Comparison value={meter_value}/>
+		<Home bind:total_carbon={home_carbon}/>
 		<Travel bind:total_carbon={travel_carbon}/>
 		<Diet bind:total_carbon={diet_carbon}/>
 		<Raw bind:total_carbon={raw_carbon}/>

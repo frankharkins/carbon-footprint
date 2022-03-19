@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-let APP_STATES = ["travel", "diet", "raw", "play"];
+let APP_STATES = ["home", "travel", "diet", "raw", "play"];
 
 export const appState = writable(APP_STATES[0]);
 
