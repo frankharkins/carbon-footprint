@@ -54,9 +54,9 @@
 <main>
 	<div class="app-container">
 		<Comparison value={meter_value}/>
-		<Home bind:total_carbon={home_carbon}/>
 		<Travel bind:total_carbon={travel_carbon}/>
 		<Diet bind:total_carbon={diet_carbon}/>
+		<Home bind:total_carbon={home_carbon}/>
 		<Raw bind:total_carbon={raw_carbon}/>
 	</div>
 	<div class="popup"

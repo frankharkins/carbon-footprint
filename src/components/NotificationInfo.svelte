@@ -11,12 +11,14 @@
 
 {#if (info === 'travel')}
 	<h2>How do we calculate travel emissions?</h2>
-	<p>We estimate car emissions from
-	<a href="https://www.carbonindependent.org/17.html">this page</a>,
-	bus emissions from
-	<a href="https://www.carbonindependent.org/20.html">this page</a>,
-	and train emissions from
-	<a href="https://www.carbonindependent.org/21.html">this page</a>
+	<p>We estimate the emissions per mile for each mode of transport and
+	multiply it by the distance you enter (converting km to miles if needed).
+	</p><p>
+	For cars, we estimate ~0.35 kg CO2 per mile. This comes from the average <a href="https://www.carbonindependent.org/17.html">CO2 emissions per gallon</a>, divided by the <a href="https://www.nimblefins.co.uk/cheap-car-insurance/average-mpg">average miles per gallon in the UK</a>.
+	</p><p>
+	For buses and trains, we estimate ~0.1 kg CO2 per mile. We use the estimates from <a href="https://www.carbonindependent.org/20.html">this page</a> and <a href="https://www.carbonindependent.org/21.html">this page</a>.
+	</p>
+	<p>For planes, we estimate ~0.5 kg CO2 per mile. This comes from <a href="https://www.carbonindependent.org/22.html">Carbon Independent's estimate</a> estimate of 0.25 tonnes CO2 per hour flying. We estimate the average speed of a plane to be ~500 mph, which is how we convert between miles and hours.
 	</p>
 
 {:else if (info === 'diet')}
