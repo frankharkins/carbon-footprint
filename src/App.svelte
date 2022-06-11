@@ -1,7 +1,6 @@
 <script>
   import { appState } from './state.js';
   import appContent from "./content.yaml";
-  import Travel from './components/Travel.svelte'
   import MiniCalc from './components/MiniCalc.svelte'
   import Comparison from './components/Comparison.svelte'
   import Notification from './components/Notification.svelte'
