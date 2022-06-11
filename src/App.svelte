@@ -1,9 +1,8 @@
 <script>
   import { appState } from './state.js';
+  import appContent from "./content.yaml";
   import Travel from './components/Travel.svelte'
-  import Home from './components/Home.svelte'
-  import Diet from './components/Diet.svelte'
-  import Raw from './components/Raw.svelte'
+  import MiniCalc from './components/MiniCalc.svelte'
   import Comparison from './components/Comparison.svelte'
   import Notification from './components/Notification.svelte'
 
@@ -20,11 +19,9 @@
   };
 
   // Handle carbon calculations
-  let travel_carbon = 0;
-  let home_carbon = 0;
-  let diet_carbon = 0;
-  let raw_carbon = 0;
-  $: meter_value = (home_carbon + travel_carbon + diet_carbon + raw_carbon);
+  const carbonContributions = new Array(appContent.length).fill(0);
+  $: meter_value = carbonContributions.reduce((partialSum, a) => partialSum + a, 0);
+  $: console.log(meter_value);
 </script>
 
 <style>
@@ -52,16 +49,15 @@
 </style>
 
 <main>
-	<div class="app-container">
-		<Comparison value={meter_value}/>
-		<Travel bind:total_carbon={travel_carbon}/>
-		<Diet bind:total_carbon={diet_carbon}/>
-		<Home bind:total_carbon={home_carbon}/>
-		<Raw bind:total_carbon={raw_carbon}/>
-	</div>
-	<div class="popup"
-	     style="display: {popup ? 'table' : 'none'};"
-	     on:click={window.hidePopup}>
-		<Notification info={popup_info} footprint={meter_value}/>
-	</div>
+ <div class="app-container">
+   <Comparison value={meter_value}/>
+   {#each Array(appContent.length) as _, i}
+     <MiniCalc content={appContent[i]} bind:totalCarbon={carbonContributions[i]}/>
+  {/each}
+ </div>
+ <div class="popup"
+   style="display: {popup ? 'table' : 'none'};"
+   on:click={window.hidePopup}>
+      <Notification info={popup_info} footprint={meter_value}/>
+ </div>
 </main>

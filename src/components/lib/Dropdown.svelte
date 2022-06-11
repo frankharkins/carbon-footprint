@@ -46,7 +46,7 @@
 
 </style>
 
-<span class="dropdown {($appState === 'play') ? '' : 'active'}" style="{capitalize ? 'text-transform: capitalize;' : ''}">
+<span class="dropdown {($appState === 'Play') ? '' : 'active'}" style="{capitalize ? 'text-transform: capitalize;' : ''}">
 	{value.label}
 	<div class="menu">
 		{#each items as item}

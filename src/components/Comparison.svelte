@@ -25,7 +25,7 @@
 	}
 </style>
 
-<div class="top-sticky {($appState === 'play') ? 'active' : 'hidden'}">
+<div class="top-sticky {($appState === 'Play') ? 'active' : 'hidden'}">
 	<Panel width="100%">
 		Your footprint:
 		<Meter bind:value={value} max="{max}" disabled="true"/>

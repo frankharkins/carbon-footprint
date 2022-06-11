@@ -19,7 +19,7 @@
 	};
 	
 	function getFinalValue(state) {
-		if (state === 'play' && finalValue === 0) {
+		if (state === 'Play' && finalValue === 0) {
 			finalValue = value;
 		}
 	};
@@ -66,7 +66,7 @@
 	}
 </style>
 
-{#if ($appState === 'play')}
+{#if ($appState === 'Play')}
 <div style="width: 100%; touch-action: none;">
 	<span style="margin-left: 10px">{value}</span>
 	<Meter max="{Math.max(finalValue*1.5, minmax_value)}" bind:value={value} disabled={false}/>

@@ -1,0 +1,30 @@
+- name: Travel
+  variables:
+    - name: car
+      type: number
+      value: 0
+      minmax: 30
+      kgco2pu: 0.3
+      label: "[ km | miles ] travelled by car per [ year | month | week | day ]:"
+    - name: bus/train 
+      type: number
+      value: 0
+      minmax: 30
+      kgco2pu: 0.1
+      label: "[ km | miles ] travelled by bus / train per [ year | month | week | day ]:"
+  summary: "Your travel emits ~%kg of CO2 per year."
+- name: Diet
+  variables:
+    - name: beef
+      type: number
+      value: 0
+      minmax: 30
+      kgco2pu: 0.13
+      label: "[ grams | ounces ] of beef bought per [ year | month | week | day ]:"
+    - name: cheese
+      type: number
+      value: 0
+      minmax: 30
+      kgco2pu: 0.0275
+      label: "[ grams | ounces ] of cheese bought per [ year | month | week | day ]:"
+  summary: "Your diet emits ~%kg of CO2 per year."

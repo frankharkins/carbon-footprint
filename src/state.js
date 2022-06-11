@@ -1,11 +1,13 @@
 import { writable } from "svelte/store";
+import appContent from "./content.yaml";
 
-let APP_STATES = ["travel", "diet", "home", "raw", "play"];
+const APP_STATES = appContent.map(panel => panel.name)
+APP_STATES.push("Play")
 
 export const appState = writable(APP_STATES[0]);
 
 appState.subscribe((state) => {
-  if (state === "play") {
+  if (state === "Play") {
     window.showPopup("comparison");
   }
 });
