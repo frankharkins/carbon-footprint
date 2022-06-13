@@ -1,8 +1,7 @@
 <script>
   import SvelteMarkdown from 'svelte-markdown';
   import Panel from './lib/Panel.svelte';
-  import NotificationInfo from './NotificationInfo.svelte';
-  export let content = 'none';
+  export let content = 'No text specified.';
   export let closeButtonText = 'Close';
 
   function handleClick(event) {

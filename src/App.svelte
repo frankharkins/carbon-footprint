@@ -6,17 +6,18 @@
   import Notification from './components/Notification.svelte'
 
   // Handle popup notifications
-  let showPopup = false;
-  let popupContent = 'none';
-  let popupCloseButtonText = 'Close';
+  const popup = {};
+  popup.content = 'none';
+  popup.closeButtonText = 'Close';
+  popup.visible = false;
 
   window.showPopup = function(content, closeButtonText='Close') {
-    showPopup = true;
-    popupContent = content;
-		  popupCloseButtonText = closeButtonText;
+    popup.visible = true;
+    popup.content = content;
+    popup.closeButtonText = closeButtonText;
   };
   window.hidePopup = function() {
-    showPopup = false;
+    popup.visible = false;
   };
 
   // Handle carbon calculations
@@ -56,9 +57,8 @@
   {/each}
  </div>
  <div class="popup"
-   style="display: {showPopup ? 'table' : 'none'};"
+   style="display: {popup.visible ? 'table' : 'none'};"
    on:click={window.hidePopup}>
-    <Notification content={popupContent}
-		  closeButtonText={popupCloseButtonText}/>
+   <Notification content={popup.content} closeButtonText={popup.closeButtonText}/>
  </div>
 </main>
