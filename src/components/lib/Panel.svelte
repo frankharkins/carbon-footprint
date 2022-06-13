@@ -1,50 +1,49 @@
 <script>
-	export let width = "33%";
-	export let min_width = "0";
-	export let margin = "10px";
-	export let on_click = () => void(0);
-	export let state = 'active';
-	export let notification = false;
+  export let width = "33%";
+  export let minWidth = "0";
+  export let margin = "10px";
+  export let onClick = () => void(0);
+  export let state = 'active';
+  export let notification = false;
 </script>
 
 <style>
-	.panel {
-		padding: 20px;
-		border-radius: 5px;
-		border: 1px solid lightgrey;
-		float: left;
-		box-shadow: 0 0 10px -1px lightgrey;
-		background: white;
+  .panel {
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    float: left;
+    box-shadow: 0 0 10px -1px lightgrey;
+    background: white;
 
-		transition-duration: 0.3s;
-	}
+    transition-duration: 0.3s;
+  }
 
-	.notification {
-		overflow: auto;
-		max-height: 80vh;
-	}
+  .notification {
+    overflow: auto;
+    max-height: 80vh;
+  }
 
-	.required {
-		border: 1px solid orange;
-		box-shadow: 0 0 25px -4px orange;
-	}
+  .required {
+    border: 1px solid orange;
+    box-shadow: 0 0 25px -4px orange;
+  }
 
-	.hidden {
-		opacity: 0;
-	}
+  .hidden {
+    opacity: 0;
+  }
 
-	:global(p:first-child) {
-		margin-top: 0;
-	}
+  :global(p:first-child) {
+    margin-top: 0;
+  }
 
 </style>
 
 <div class="panel {state} {notification ? 'notification' : ''}"
      style="width: calc({width} - 60px);
-	    min-width: {min_width};
+	    min-width: {minWidth};
 	    margin: {margin}"
-     on:click={on_click}
->
-	<slot></slot>
+     on:click={onClick}>
+  <slot></slot>
 </div>
 

@@ -1,14 +1,14 @@
 import { writable } from 'svelte/store'
 import appContent from './content.yaml'
 
-const APP_STATES = appContent.map((panel) => panel.name)
+const APP_STATES = appContent.calculators.map((panel) => panel.name)
 APP_STATES.push('Play')
 
 export const appState = writable(APP_STATES[0])
 
 appState.subscribe((state) => {
   if (state === 'Play') {
-    window.showPopup('comparison')
+    window.showPopup(appContent.completionNotification, 'Play')
   }
 })
 

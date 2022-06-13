@@ -1,25 +1,29 @@
 <script>
-	import Panel from './lib/Panel.svelte';
-	import NotificationInfo from './NotificationInfo.svelte';
-	export let info = 'none';
-	export let footprint = 0;
-	
-	function handleClick(event) {
-		event.stopPropagation();
-	};
+  import SvelteMarkdown from 'svelte-markdown';
+  import Panel from './lib/Panel.svelte';
+  import NotificationInfo from './NotificationInfo.svelte';
+  export let content = 'none';
+  export let closeButtonText = 'Close';
+
+  function handleClick(event) {
+    event.stopPropagation();
+  };
 	
 </script>
 
 <style>
-	
-	.centered {
-		display: table-cell;
-		vertical-align: middle;
-	}
+  .centered {
+    display: table-cell;
+    vertical-align: middle;
+  }
 </style>
 
 <div class="centered">
-	<Panel width="80%" margin="10%" on_click={handleClick} notification={true}>
-	<NotificationInfo info={info} carbon={footprint}/>
-</Panel>
+  <Panel width="80%" margin="10%" onClick={handleClick} notification={true}>
+    <SvelteMarkdown source={ content }/>
+    <div style="text-align: right; font-size: 1.2em; cursor: pointer;"
+         on:click={window.hidePopup}>
+      { closeButtonText }
+    </div>
+  </Panel>
 </div>

@@ -1,6 +1,6 @@
 <script>
 	import { appState, nextAppState } from '../../state.js';
-	export let name = 'none';
+        export let content;
 </script>
 
 <style>
@@ -26,8 +26,8 @@
 
 <div class="footer">
 	<p>
-		<span class="about-button" on:click={() => window.showPopup(name)}>About this panel</span>
-		{#if $appState === name}
+		<span class="about-button" on:click={() => window.showPopup(content.about)}>About this panel</span>
+		{#if $appState === content.name}
 			<span on:click={nextAppState} class="next-button">Next</span>
 		{/if}
 	</p>

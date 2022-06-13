@@ -1,35 +1,62 @@
-- name: Travel
-  variables:
-    - name: car
-      type: number
-      value: 0
-      minmax: 30
-      kgco2pu: 0.3
-      label:
-        '[ km | miles ] travelled by car per [ year | month | week | day ]:'
-    - name: bus/train
-      type: number
-      value: 0
-      minmax: 30
-      kgco2pu: 0.1
-      label:
-        '[ km | miles ] travelled by bus / train per [ year | month | week | day
-        ]:'
-  summary: 'Your travel emits ~%kg of CO2 per year.'
-- name: Diet
-  variables:
-    - name: beef
-      type: number
-      value: 0
-      minmax: 30
-      kgco2pu: 0.13
-      label:
-        '[ grams | ounces ] of beef bought per [ year | month | week | day ]:'
-    - name: cheese
-      type: number
-      value: 0
-      minmax: 30
-      kgco2pu: 0.0275
-      label:
-        '[ grams | ounces ] of cheese bought per [ year | month | week | day ]:'
-  summary: 'Your diet emits ~%kg of CO2 per year.'
+calculators:
+  - name: Travel
+    variables:
+      - name: car
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.22
+        label:
+          '[ km | miles ] travelled by car per [ year | month | week | day ]:'
+      - name: bus/train
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.1
+        label:
+          '[ km | miles ] travelled by bus / train per [ year | month | week |
+          day ]:'
+    summary: 'Your travel emits ~%kg of CO2 per year.'
+    about: |
+      ## How do we calculate travel emissions?
+
+      We estimate the emissions per mile for each mode of transport and
+      multiply it by the distance you enter (converting km to miles if needed).
+
+      For cars, we estimate ~0.35 kg CO2 per mile. This comes from the average
+      [CO2 emissions per gallon](https://www.carbonindependent.org/17.html),
+      divided by the [average miles per gallon in the UK](https://www.nimblefins.co.uk/cheap-car-insurance/average-mpg).
+
+      For buses and trains, we estimate ~0.1 kg CO2 per mile. We use the estimates from
+      [this page](https://www.carbonindependent.org/20.html) and [this page](https://www.carbonindependent.org/21.html).
+
+  - name: Diet
+    variables:
+      - name: beef
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.13
+        label:
+          '[ grams | ounces ] of beef bought per [ year | month | week | day ]:'
+      - name: cheese
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.0275
+        label:
+          '[ grams | ounces ] of cheese bought per [ year | month | week | day
+          ]:'
+    summary: 'Your diet emits ~%kg of CO2 per year.'
+    about: |
+      ## How do we calculate diet emissions?
+
+      We used the mean CO2 equivalent emissions from
+      [this paper](https://www.researchgate.net/publication/325532198_Reducing_food%27s_environmental_impacts_through_producers_and_consumer).
+
+completionNotification: |
+  ## Complete
+
+  You've finished the calculation, now adjust the sliders to see which variables
+  have the biggest effect on your footprint. Can you find three things you can
+  realistically change that have the biggest impact?
