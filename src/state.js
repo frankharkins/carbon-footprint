@@ -1,17 +1,17 @@
-import { writable } from "svelte/store";
-import appContent from "./content.yaml";
+import { writable } from 'svelte/store'
+import appContent from './content.yaml'
 
-const APP_STATES = appContent.calculators.map((panel) => panel.name);
-APP_STATES.push("Play");
+const APP_STATES = appContent.calculators.map((panel) => panel.name)
+APP_STATES.push('Play')
 
-export const appState = writable(APP_STATES[0]);
+export const appState = writable(APP_STATES[0])
 
 appState.subscribe((state) => {
-	if (state === "Play") {
-		window.showPopup(appContent.completionNotification, "Play");
-	}
-});
+  if (state === 'Play') {
+    window.showPopup(appContent.completionNotification, 'Play')
+  }
+})
 
 export function nextAppState() {
-	appState.update((state) => APP_STATES[APP_STATES.indexOf(state) + 1]);
+  appState.update((state) => APP_STATES[APP_STATES.indexOf(state) + 1])
 }
