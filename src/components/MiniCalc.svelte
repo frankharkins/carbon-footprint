@@ -42,33 +42,36 @@
     return { label: name, value: units[name] }
   }
 
-  function parseLabel ( label ) {
+  function parseLabel ( labelStr ) {
       // identifies parts of string as dropdowns or plaintext
-      const splitLabel = label.split(/(\[.*?\])/g);
-      const labelData = [];
-      for (let i=0; i < splitLabel.length; i++) {
-        let chunk = splitLabel[i];
-        if (chunk.includes('[')) {
-            // chunk is a unit (need a dropdown)
-            chunk = chunk.replace(/[\[\]\s]/g, '');
-            chunk = chunk.split('|');
+      // e.g.: identify distance dropdown in:
+      //'[ km | miles ] travelled by car per...'
+
+      const splitLabel = labelStr.split(/(\[.*?\])/g)  // Split on square brackets
+                                 .filter(Boolean);  // Remove empty strings
+      const label = [];
+      splitLabel.forEach(function (labelSegment, labelIndex) {
+        if (labelSegment.includes('[')) {
+            // labelSegment is a unit (need a dropdown)
+            labelSegment = labelSegment.replace(/[\[\]\s]/g, '');
             let units = [];
-            for (let u=0; u < chunk.length; u++) {
-              units.push(getUnit(chunk[u]))
-            }
-            labelData.push({
+            labelSegment.split('|').forEach(function (unit, index) {
+              units.push(getUnit(unit))
+            })
+            label.push({
                 type: 'dropdown',
                 selectedUnit: units[0],
-                units: units
+                units: units,
+                capitalize: (labelIndex === 0)
               })
         } else {
-            labelData.push({
+            label.push({
                 type: 'text',
-                value: chunk
+                value: labelSegment
           })
         }
-      }
-      return labelData;
+      })
+      return label;
     }
 
   function calculateCarbon ( variables ) {
@@ -100,7 +103,8 @@
     {#each variable.labelData as l}
       {#if l.type === 'dropdown'}
         <Dropdown bind:value={l.selectedUnit}
-                  items={l.units}/>
+                  items={l.units}
+                  capitalize={l.capitalize}/>
       {:else}
         {l.value}
       {/if}
