@@ -30,7 +30,24 @@
   }
 
   .hidden {
-    opacity: 0;
+    opacity: 0.33;
+    border: dashed 2px lightgrey;
+    /* border: none; */
+    box-shadow: none;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 30%,
+        #F3F3F3 30%,
+        #F3F3F3 50%,
+        transparent 50%
+      );
+    background-size: 10px 10px;
+    background-opacity: 0.1;
+  }
+
+  .hidden :global(*) {
+      opacity: 0;
   }
 
   :global(p:first-child) {
