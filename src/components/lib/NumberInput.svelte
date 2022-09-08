@@ -42,6 +42,7 @@
 		height: 1.55em;
 		width: 10em;
 		border: 1px solid lightgrey;
+        border-radius: 3px;
 		padding-top: 5px;
 		user-select: none;
 	}
