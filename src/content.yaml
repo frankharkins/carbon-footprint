@@ -16,6 +16,14 @@ calculators:
         label:
           '[ km | miles ] travelled by bus / train per [ week | year | month |
           day ]:'
+      - name: plane
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.5
+        label:
+          '[ km | miles ] travelled by plane per [ week | year | month | day ]:'
+
     summary: 'Your travel emits ~%kg of CO2 per year.'
     about: |
       ## How do we calculate travel emissions?
@@ -38,23 +46,59 @@ calculators:
         type: number
         value: 0
         minmax: 30
-        kgco2pu: 0.13
+        kgco2pu: 0.5
         label:
-          '[ grams | ounces ] of beef bought per [ year | month | week | day ]:'
+          '[ grams | ounces ] of beef bought per [ week | month | year | day ]:'
+      - name: lamb / mutton
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.2
+        label:
+          '[ grams | ounces ] of lamb / mutton bought per [ week | month | year
+          | day ]:'
       - name: cheese
         type: number
         value: 0
         minmax: 30
-        kgco2pu: 0.0275
+        kgco2pu: 0.1
         label:
           '[ grams | ounces ] of cheese bought per [ week | month | year | day
           ]:'
+      - name: pork
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.07
+        label:
+          '[ grams | ounces ] of pork bought per [ week | month | year | day ]:'
     summary: 'Your diet emits ~%kg of CO2 per year.'
     about: |
       ## How do we calculate diet emissions?
 
       We used the mean CO2 equivalent emissions from
       [this paper](https://www.researchgate.net/publication/325532198_Reducing_food%27s_environmental_impacts_through_producers_and_consumer).
+
+  - name: Gas / electric
+    variables:
+      - name: electric
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.31
+        label: 'KWh of electricity used per [ year| month | week | day ]:'
+      - name: gas
+        type: number
+        value: 0
+        minmax: 30
+        kgco2pu: 0.2
+        label: 'KWh of gas used per [ year| month | week | day ]:'
+
+    summary: 'Your household enery usage emits ~%kg of CO2 per year.'
+    about: |
+      ## How do we calculate household emissions?
+
+      Numbers taken from [Carbon Independent](https://www.carbonindependent.org/15.html).
 
 completionNotification: |
   ## Complete
