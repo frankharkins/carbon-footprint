@@ -7,14 +7,14 @@ calculators:
         minmax: 30
         kgco2pu: 0.22
         label:
-          '[ km | miles ] travelled by car per [ year | month | week | day ]:'
+          '[ km | miles ] travelled by car per [ week | year | month | day ]:'
       - name: bus/train
         type: number
         value: 0
         minmax: 30
         kgco2pu: 0.1
         label:
-          '[ km | miles ] travelled by bus / train per [ year | month | week |
+          '[ km | miles ] travelled by bus / train per [ week | year | month |
           day ]:'
     summary: 'Your travel emits ~%kg of CO2 per year.'
     about: |
@@ -25,10 +25,12 @@ calculators:
 
       For cars, we estimate ~0.35 kg CO2 per mile. This comes from the average
       [CO2 emissions per gallon](https://www.carbonindependent.org/17.html),
-      divided by the [average miles per gallon in the UK](https://www.nimblefins.co.uk/cheap-car-insurance/average-mpg).
+      divided by the [average miles per gallon in the UK](
+      https://www.nimblefins.co.uk/cheap-car-insurance/average-mpg).
 
-      For buses and trains, we estimate ~0.1 kg CO2 per mile. We use the estimates from
-      [this page](https://www.carbonindependent.org/20.html) and [this page](https://www.carbonindependent.org/21.html).
+      For buses and trains, we estimate ~0.1 kg CO2 per mile. We use the
+      estimates from [this page](https://www.carbonindependent.org/20.html) and
+      [this page](https://www.carbonindependent.org/21.html).
 
   - name: Diet
     variables:
@@ -45,7 +47,7 @@ calculators:
         minmax: 30
         kgco2pu: 0.0275
         label:
-          '[ grams | ounces ] of cheese bought per [ year | month | week | day
+          '[ grams | ounces ] of cheese bought per [ week | month | year | day
           ]:'
     summary: 'Your diet emits ~%kg of CO2 per year.'
     about: |
