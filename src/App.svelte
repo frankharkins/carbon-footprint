@@ -4,6 +4,7 @@
   import MiniCalc from './components/MiniCalc.svelte'
   import Comparison from './components/Comparison.svelte'
   import Notification from './components/Notification.svelte'
+  import AboutPanel from './components/AboutPanel.svelte'
 
   // Handle popup notifications
   const popup = {};
@@ -55,6 +56,7 @@
    {#each Array(appContent.calculators.length) as _, i}
      <MiniCalc content={appContent.calculators[i]} bind:totalCarbon={carbonContributions[i]}/>
   {/each}
+  <AboutPanel content={appContent.aboutPanel}/>
  </div>
  <div class="popup"
    style="display: {popup.visible ? 'table' : 'none'};"

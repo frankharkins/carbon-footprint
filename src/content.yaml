@@ -106,3 +106,8 @@ completionNotification: |
   You've finished the calculation, now adjust the sliders to see which variables
   have the biggest effect on your footprint. Can you find three things you can
   realistically change that have the biggest impact?
+
+aboutPanel: |
+  Created by Frank Harkins.
+
+  [View source on GitHub](link)
