@@ -1,5 +1,6 @@
 <script>
   import { appState } from '../state.js';
+  import { getUnit } from '../utils.js';
   import Panel from './lib/Panel.svelte';
   import PanelFooter from './lib/PanelFooter.svelte';
   import Dropdown from './lib/Dropdown.svelte';
@@ -23,24 +24,6 @@
   
   $: panelState = getPanelState($appState);
 
-  // This stuff should be in another file
-  function getUnit ( name ) {
-    const units = {
-      // distance (default is km)
-      miles: 1.61,
-      km: 1,
-      // time (default is year)
-      day: 365,
-      week: 52,
-      month: 12,
-      year: 1,
-      // mass (default is grams)
-      grams: 1,
-      ounces: 28.3
-    };
-    
-    return { label: name, value: units[name] }
-  }
 
   function parseLabel ( labelStr ) {
       // identifies parts of string as dropdowns or plaintext
