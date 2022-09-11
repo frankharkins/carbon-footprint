@@ -94,7 +94,7 @@ calculators:
         kgco2pu: 0.2
         label: 'KWh of gas used per [ year| month | week | day ]:'
 
-    summary: 'Your household enery usage emits ~%kg of CO2 per year.'
+    summary: 'Your household energy usage emits ~%kg of CO2 per year.'
     about: |
       ## How do we calculate household emissions?
 
