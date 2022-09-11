@@ -9,6 +9,6 @@
 	
 </script>
 
-<Panel onClick={handleClick} notification={true}>
+<Panel onClick={handleClick} state='info'>
   <SvelteMarkdown source={ content }/>
 </Panel>

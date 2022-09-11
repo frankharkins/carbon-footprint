@@ -19,6 +19,7 @@
   }
 
   .notification {
+    border: 1px solid var(--light-blue);
     overflow: auto;
     box-shadow: none;
     max-height: 80vh;
@@ -29,10 +30,14 @@
     box-shadow: 0 0 25px -4px var(--highlight-color);
   }
 
+  .info {
+    border: 1px solid var(--light-blue);
+  }
+
   .hidden {
     opacity: 0.5;
-    border: dashed 2px var(--light-grey);
-    margin: 9px;
+    border: none;
+    margin: 11px;
     box-shadow: none;
     background: var(--stripes-gradient);
     background-size: var(--stripes-bg-size);
