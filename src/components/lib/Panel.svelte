@@ -19,7 +19,6 @@
   }
 
   .notification {
-    border: 1px solid var(--light-blue);
     overflow: auto;
     box-shadow: none;
     max-height: 80vh;
