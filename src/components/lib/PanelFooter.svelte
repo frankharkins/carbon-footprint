@@ -15,7 +15,7 @@
 
 	.next-button {
 		float: right;
-		color: black;
+		color: var(--black);
 	}
 
 	.about-button {

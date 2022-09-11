@@ -27,27 +27,35 @@
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-
-:global(body) {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
 .app-container {
-  max-width: 1200px;
+  max-width: var(--max-app-size);
   position: absolute;
   left: 0;
   right: 0;
   margin: auto auto;
 }
 
-.popup {
-  background: rgba(0, 0, 0, 0.4);
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   width: 100%;
   height: 100%;
   margin: -8px;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
 }
+
+.popup-overlay-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.notification-container {
+    max-width: var(--max-app-size);
+    margin: auto;
+}
+
 </style>
 
 <main>
@@ -58,9 +66,10 @@
   {/each}
   <AboutPanel content={appContent.aboutPanel}/>
  </div>
- <div class="popup"
-   style="display: {popup.visible ? 'table' : 'none'};"
+ <div class="popup-overlay {popup.visible ? 'popup-overlay-visible' : ''}"
    on:click={window.hidePopup}>
-   <Notification content={popup.content} closeButtonText={popup.closeButtonText}/>
+   <div class="notification-container">
+     <Notification content={popup.content} closeButtonText={popup.closeButtonText}/>
+   </div>
  </div>
 </main>

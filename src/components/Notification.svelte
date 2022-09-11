@@ -12,13 +12,14 @@
 
 <style>
   .centered {
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
 
 <div class="centered">
-  <Panel width="80%" margin="10%" onClick={handleClick} notification={true}>
+  <Panel width="100%" onClick={handleClick} notification={true}>
     <SvelteMarkdown source={ content }/>
     <div style="text-align: right; font-size: 1.2em; cursor: pointer;"
          on:click={window.hidePopup}>

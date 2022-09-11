@@ -41,7 +41,7 @@
 	.input-container {
 		height: 1.55em;
 		width: 10em;
-		border: 1px solid lightgrey;
+		border: 1px solid var(--light-grey);
         border-radius: 3px;
 		padding-top: 5px;
 		user-select: none;
@@ -59,7 +59,7 @@
 	}
 
 	.input-buttons:active {
-		color: lightgrey;
+		color: var(--light-grey);
 	}
 
 	input:focus {

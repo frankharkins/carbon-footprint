@@ -9,13 +9,6 @@
 	
 </script>
 
-<style>
-  .centered {
-    display: table-cell;
-    vertical-align: middle;
-  }
-</style>
-
 <Panel onClick={handleClick} notification={true}>
   <SvelteMarkdown source={ content }/>
 </Panel>

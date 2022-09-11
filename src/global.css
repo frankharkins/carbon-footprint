@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root {
+  --highlight-color: #ffa500;
+  --black: #101010;
+  --link-color: #004fb3;
+  --light-grey: #d3d3d3;
+
+  --max-app-size: 1200px;
+
+  --stripes-gradient: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 30%,
+    #f3f3f3 30%,
+    #f3f3f3 50%,
+    transparent 50%
+  );
+
+  --stripes-bg-size: 10px 10px;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--black);
+}
+
+a {
+  color: var(--link-color);
+}
+
+.hidden * {
+  opacity: 0;
+  pointer-events: none;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}

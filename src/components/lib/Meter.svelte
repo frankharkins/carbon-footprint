@@ -15,26 +15,26 @@
 		-webkit-appearance: none;
 		width: 100%;
 		height: 5px;
-		background: black;
+		background: var(--black);
 		-webkit-transition: .2s;
 	}
 
 	input.meter::-moz-range-thumb {
 		width: 5px;
 		height: 15px;
-		background: black;
+		background: var(--black);
 		border: none;
 		border-radius: 0;
 	}
 
 	input.meter::-moz-range-progress {
-		background: black;
+		background: var(--black);
 		height: 5px;
 		border: none;
 	}
 
 	input.meter::-moz-range-track {
-		background: lightgrey;
+		background: var(--light-grey);
 		height: 5px;
 		border: 1px solid white;
 	}

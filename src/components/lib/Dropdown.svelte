@@ -17,7 +17,7 @@
 
 	.active {
 		cursor: pointer;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid var(--black);
 	}
 
 	.menu {
@@ -33,7 +33,7 @@
 	}
 
 	.item:hover {
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid var(--black);
 	}
 
 	.active:hover {
