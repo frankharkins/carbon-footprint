@@ -20,7 +20,7 @@ calculators:
         type: number
         value: 0
         minmax: 30
-        kgco2pu: 0.5
+        kgco2pu: 0.31
         label:
           '[ hours @ 800 | km | miles ] travelled by plane per [ year | month |
           week | day ]:'
@@ -32,14 +32,21 @@ calculators:
       We estimate the emissions per mile for each mode of transport and
       multiply it by the distance you enter (converting km to miles if needed).
 
-      For cars, we estimate ~0.35 kg CO2 per mile. This comes from the average
+      For cars, we estimate ~0.22 kg CO2 per kilometer. This comes from the average
       [CO2 emissions per gallon](https://www.carbonindependent.org/17.html),
       divided by the [average miles per gallon in the UK](
       https://www.nimblefins.co.uk/cheap-car-insurance/average-mpg).
 
-      For buses and trains, we estimate ~0.1 kg CO2 per mile. We use the
+      For buses and trains, we estimate ~0.1 kg CO2 per kilometer. We use the
       estimates from [this page](https://www.carbonindependent.org/20.html) and
       [this page](https://www.carbonindependent.org/21.html).
+
+      For planes, we estimate ~0.3 kg CO2 per kilometer, also using estimates
+      from [carbon independent](https://www.carbonindependent.org/22.html). To
+      convert between time and distance, we estimate planes move at
+      ~800km/hour.
+
+
 
   - name: Diet
     variables:
