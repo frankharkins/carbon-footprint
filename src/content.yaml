@@ -22,7 +22,8 @@ calculators:
         minmax: 30
         kgco2pu: 0.5
         label:
-          '[ hours @ 800 | km | miles ] travelled by plane per [ year | month | week | day ]:'
+          '[ hours @ 800 | km | miles ] travelled by plane per [ year | month |
+          week | day ]:'
 
     summary: 'Your travel emits ~%kg of CO2 per year.'
     about: |
