@@ -80,7 +80,7 @@
   $: totalCarbon = calculateCarbon(variables);
 </script>
 
-<Panel state={panelState} minWidth={minWidth}>
+<Panel state={panelState}>
   {#each variables as variable}
     <p>
     {#each variable.labelData as l}

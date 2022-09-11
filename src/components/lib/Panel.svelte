@@ -1,13 +1,13 @@
 <script>
-  export let width = "33%";
-  export let minWidth = "0";
   export let onClick = () => void(0);
   export let state = 'active';
   export let notification = false;
+  let width = notification ? '100%' : '33%';
 </script>
 
 <style>
   .panel {
+    min-width: 300px;
     padding: 20px;
     margin: 10px;
     border-radius: 5px;
@@ -47,7 +47,6 @@
 
 <div class="panel {state} {notification ? 'notification' : ''}"
      style="width: calc({width} - 60px);
-            min-width: {minWidth};
             max-width: var(--max-app-size);"
      on:click={onClick}>
   <slot></slot>
