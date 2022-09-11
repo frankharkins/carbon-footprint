@@ -19,7 +19,7 @@ npm run dev
 ## Editing the calculator
 
 If you think there's an error or significant inaccuracy in this calculator, you
-can make a PR to fix it, or make a fork with your own values. All content and
+can make an issue, make PR to fix it, or make a fork with your own values. All content and
 variables for this calculator are stored in `src/content.yaml`. It should
 hopefully be pretty clear how editing this file affects the built web app, but
 here's a quick overview of how it works:
@@ -33,6 +33,7 @@ here's a quick overview of how it works:
     - km for distance,
     - years for time,
     - grams for mass.
+    
   We have some special syntax that creates a dropdown box where users can
   change the input units, (e.g. `[ km | miles ]`). If the software recognizes a
   unit, it'll multiply the result by the conversion factor to correct for the
