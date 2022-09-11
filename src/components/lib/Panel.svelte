@@ -1,8 +1,10 @@
 <script>
   export let onClick = () => void(0);
   export let state = 'active';
+  export let topSticky = false;
   export let notification = false;
   let width = notification ? '100%' : '33%';
+  width = topSticky ? '100%' : width;
 </script>
 
 <style>

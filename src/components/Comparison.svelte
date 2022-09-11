@@ -26,7 +26,7 @@
 </style>
 
 <div class="top-sticky {($appState === 'Play') ? 'active' : 'hidden'}">
-	<Panel width="100%">
+    <Panel topSticky={true}>
 		Your footprint:
 		<Meter bind:value={value} max="{max}" disabled="true"/>
 		UK average:
