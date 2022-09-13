@@ -1,9 +1,10 @@
 <script>
-	// TODO:
-	// - Make compatible with chrome & ie
 	export let disabled = false;
 	export let value = 30;
 	export let max = 1000;
+
+    $: meterPct = (100*value/max).toString() + "%";
+    let initialValue = value;
 </script>
 
 <style>
@@ -11,36 +12,71 @@
 		width: 100%;
 	}
 
-	input.meter {
-		-webkit-appearance: none;
-		width: 100%;
-		height: 5px;
-		background: var(--black);
-		-webkit-transition: .2s;
-	}
+    /* There's a lot of css here to handle different browsers; see
+    https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers
+    for details. */
 
-	input.meter::-moz-range-thumb {
-		width: 5px;
-		height: 15px;
-		background: var(--black);
-		border: none;
-		border-radius: 0;
-	}
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      width: 100%;
+    }
 
-	input.meter::-moz-range-progress {
-		background: var(--black);
-		height: 5px;
-		border: none;
-	}
+    input[type="range"]:focus {
+      outline: none;
+    }
 
-	input.meter::-moz-range-track {
-		background: var(--light-grey);
-		height: 5px;
-		border: 1px solid white;
-	}
+    /* For chrome, ie, safari */
+    input[type="range"]::-webkit-slider-runnable-track {
+      background: linear-gradient(
+        to right,
+        var(--black) var(--meter-value),
+        var(--light-grey) var(--meter-value)
+      );
+      height: 5px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+       -webkit-appearance: none;
+       appearance: none;
+       margin-top: -5px;
+       background-color: var(--black);
+       height: 15px;;
+       width: 5px;
+    }
+
+    input[type="range"]:focus::-webkit-slider-thumb {
+      outline: 2px solid var(--light-blue);
+      outline-offset: 1px;
+    }
+
+    /* for firefox */
+    input[type="range"]::-moz-range-track {
+      background: linear-gradient(
+        to right,
+        var(--black) var(--meter-value),
+        var(--light-grey) var(--meter-value)
+      );
+      height: 5px;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      border: none;
+      border-radius: 0;
+      background-color: var(--black);
+      height: 15px;
+      width: 5px;
+    }
+
+    input[type="range"]:focus::-moz-range-thumb {
+      outline: 2px solid var(--light-blue);
+      outline-offset: 1px;
+    }
+
 </style>
 
-<div class='meter-container'>
+<div class='meter-container' style='--meter-value: {meterPct}'>
 	<input type="range"
 	       min="0"
 	       max="{max}"
