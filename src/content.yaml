@@ -46,8 +46,6 @@ calculators:
       convert between time and distance, we estimate planes move at
       ~800km/hour.
 
-
-
   - name: Diet
     variables:
       - name: beef
@@ -94,13 +92,13 @@ calculators:
         value: 0
         minmax: 30
         kgco2pu: 0.31
-        label: 'KWh of electricity used per [ year| month | week | day ]:'
+        label: 'KWh of electricity used per [ month | year | week | day ]:'
       - name: gas
         type: number
         value: 0
         minmax: 30
         kgco2pu: 0.2
-        label: 'KWh of gas used per [ year| month | week | day ]:'
+        label: 'KWh of gas used per [ month | year | week | day ]:'
 
     summary: 'Your household energy usage emits ~%kg of CO2 per year.'
     about: |
