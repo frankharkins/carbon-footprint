@@ -12,12 +12,24 @@
 <style>
   .md-container {
     margin-bottom: 12px;
+    float: left;
+  }
+
+  img {
+    max-height: 1.2em;
+    margin-bottom: 12px;
+    float: right;
   }
 
 </style>
 
 <Panel onClick={handleClick} state='info'>
   <div class="md-container">
-    <SvelteMarkdown source={ content }/>
+    <SvelteMarkdown source={ content.description }/>
   </div>
+  <a href="{ content.githubLink }">
+    <img title="View source on GitHub"
+         alt="Link to source code on GitHub."
+         src="./src/assets/gh-logo.png">
+  </a>
 </Panel>

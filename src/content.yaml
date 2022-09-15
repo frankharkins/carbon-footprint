@@ -113,7 +113,6 @@ completionNotification: |
   have the biggest effect on your footprint. Can you find three things you can
   realistically change that have the biggest impact?
 
-aboutPanel: |
-  Created by Frank Harkins.
-
-  [View source on GitHub](https://github.com/frankharkins/carbon-footprint).
+aboutPanel:
+  description: By Frank Harkins
+  githubLink: https://github.com/frankharkins/carbon-footprint
