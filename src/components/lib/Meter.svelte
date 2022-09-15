@@ -20,6 +20,7 @@
       -webkit-appearance: none;
       appearance: none;
       background: transparent;
+      padding: 12px 0;  /* Make clickable area bigger (for touch devices) */
       width: 100%;
     }
 
@@ -42,7 +43,7 @@
        appearance: none;
        margin-top: -5px;
        background-color: var(--black);
-       height: 15px;;
+       height: 15px;
        width: 5px;
     }
 

@@ -11,6 +11,7 @@
   .panel {
     min-width: 300px;
     padding: 20px;
+    padding-bottom: 7px;
     margin: 10px;
     border-radius: 5px;
     border: 1px solid var(--light-grey);

@@ -5,7 +5,7 @@
 
 <style>
 	p {
-		margin-bottom: 0px;
+		margin-bottom: 12px;
 		margin-top: 20px;
 	}
 

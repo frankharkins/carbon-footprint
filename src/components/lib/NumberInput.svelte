@@ -44,6 +44,7 @@
 		border: 1px solid var(--light-grey);
         border-radius: 3px;
 		padding-top: 5px;
+        margin: 10px 0;
 		user-select: none;
 	}
 
@@ -69,7 +70,6 @@
 
 {#if ($appState === 'Play')}
 <div style="width: 100%; touch-action: none;">
-	<span style="margin-left: 10px">{value}</span>
 	<Meter max="{Math.max(finalValue*1.5, minmax_value)}" bind:value={value} disabled={false}/>
 </div>
 {:else}

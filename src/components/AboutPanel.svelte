@@ -9,6 +9,15 @@
 	
 </script>
 
+<style>
+  .md-container {
+    margin-bottom: 12px;
+  }
+
+</style>
+
 <Panel onClick={handleClick} state='info'>
-  <SvelteMarkdown source={ content }/>
+  <div class="md-container">
+    <SvelteMarkdown source={ content }/>
+  </div>
 </Panel>

@@ -80,6 +80,12 @@
   $: totalCarbon = calculateCarbon(variables);
 </script>
 
+<style>
+  p {
+      margin: 0;
+  }
+</style>
+
 <Panel state={panelState}>
   {#each variables as variable}
     <p>
@@ -92,6 +98,9 @@
         {l.value}
       {/if}
     {/each}
+    {#if $appState === 'Play'}
+        <span style="float: right;">{variable.value}</span>
+    {/if}
     </p>
     {#if variable.type === 'number' }
       <NumberInput bind:value={variable.value}
