@@ -30,6 +30,6 @@
   <a href="{ content.githubLink }">
     <img title="View source on GitHub"
          alt="Link to source code on GitHub."
-         src="/images/gh-logo.png">
+         src="images/gh-logo.png">
   </a>
 </Panel>
