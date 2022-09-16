@@ -19,7 +19,7 @@ calculators:
       - name: plane
         type: number
         value: 0
-        minmax: 30
+        minmax: 10
         kgco2pu: 0.31
         label:
           '[ hours @ 800 | km | miles ] travelled by plane per [ year | month |
@@ -51,14 +51,14 @@ calculators:
       - name: beef
         type: number
         value: 0
-        minmax: 30
+        minmax: 300
         kgco2pu: 0.5
         label:
           '[ grams | ounces ] of beef bought per [ week | month | year | day ]:'
       - name: lamb / mutton
         type: number
         value: 0
-        minmax: 30
+        minmax: 300
         kgco2pu: 0.2
         label:
           '[ grams | ounces ] of lamb / mutton bought per [ week | month | year
@@ -66,7 +66,7 @@ calculators:
       - name: cheese
         type: number
         value: 0
-        minmax: 30
+        minmax: 300
         kgco2pu: 0.1
         label:
           '[ grams | ounces ] of cheese bought per [ week | month | year | day
@@ -74,7 +74,7 @@ calculators:
       - name: pork
         type: number
         value: 0
-        minmax: 30
+        minmax: 300
         kgco2pu: 0.07
         label:
           '[ grams | ounces ] of pork bought per [ week | month | year | day ]:'
@@ -90,13 +90,13 @@ calculators:
       - name: electric
         type: number
         value: 0
-        minmax: 30
+        minmax: 150
         kgco2pu: 0.31
         label: 'KWh of electricity used per [ month | year | week | day ]:'
       - name: gas
         type: number
         value: 0
-        minmax: 30
+        minmax: 600
         kgco2pu: 0.2
         label: 'KWh of gas used per [ month | year | week | day ]:'
 

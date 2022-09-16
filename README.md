@@ -46,6 +46,11 @@ app, but here's a quick overview of how it works:
   `[ hours @ 800 | km | miles ]`, which means our calculator returns
   `value * kgco2pu * 800`.
 
+  Each variable has a `minmax` value. When the variable input is in slider
+  mode, the `minmax` value is the smallest slider range allowed (i.e. the
+  minimum maximum value). This should generally be set to 1.3 * the UK average
+  for that value.
+
 - Each calculator also includes 'about' info, that we use to explain our
   sources, methods and assumptions to the user. Make sure to edit this when you
   edit the values.
