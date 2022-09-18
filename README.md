@@ -16,6 +16,8 @@ npm install
 npm run dev
 ```
 
+To deploy, locally run `./deploy.sh` (you'll need to be on `main` and stash any changes first).
+
 ## Editing the calculator
 
 If you think there's an error or significant inaccuracy in this calculator, you
