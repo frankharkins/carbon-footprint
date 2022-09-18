@@ -55,14 +55,13 @@ calculators:
         kgco2pu: 0.5
         label:
           '[ grams | ounces ] of beef bought per [ week | month | year | day ]:'
-      - name: lamb / mutton
+      - name: lamb
         type: number
         value: 0
         minmax: 300
         kgco2pu: 0.2
         label:
-          '[ grams | ounces ] of lamb / mutton bought per [ week | month | year
-          | day ]:'
+          '[ grams | ounces ] of lamb bought per [ week | month | year | day ]:'
       - name: cheese
         type: number
         value: 0
