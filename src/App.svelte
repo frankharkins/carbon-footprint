@@ -7,10 +7,11 @@
   import AboutPanel from './components/AboutPanel.svelte'
 
   // Handle popup notifications
-  const popup = {};
-  popup.content = 'none';
-  popup.closeButtonText = 'Close';
-  popup.visible = false;
+  const popup = {
+      content: 'none',
+      closeButtonText: 'Close',
+      visible: false
+  };
 
   window.showPopup = function(content, closeButtonText='Close') {
     popup.visible = true;
@@ -22,8 +23,9 @@
   };
 
   // Handle carbon calculations
-  const carbonContributions = new Array(appContent.calculators.length).fill(0);
-  $: meterValue = carbonContributions.reduce((partialSum, a) => partialSum + a, 0);
+  appContent.calculators.forEach( (calc) => calc["carbon"] = 0 );
+  $: meterValue = appContent.calculators.reduce(
+                             (partialSum, calc) => partialSum + calc.carbon, 0);
 </script>
 
 <style>
@@ -61,8 +63,8 @@
 <main>
  <div class="app-container">
    <Comparison value={meterValue}/>
-   {#each Array(appContent.calculators.length) as _, i}
-     <MiniCalc content={appContent.calculators[i]} bind:totalCarbon={carbonContributions[i]}/>
+   {#each appContent.calculators as calc}
+     <MiniCalc content={calc} bind:totalCarbon={calc.carbon}/>
   {/each}
   <AboutPanel content={appContent.aboutPanel}/>
  </div>
