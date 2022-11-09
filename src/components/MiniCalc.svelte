@@ -1,28 +1,34 @@
 <script>
   import { appState } from '../state.js';
   import { getUnit } from '../utils.js';
+  import SvelteMarkdown from 'svelte-markdown';
   import Panel from './lib/Panel.svelte';
   import PanelFooter from './lib/PanelFooter.svelte';
   import Dropdown from './lib/Dropdown.svelte';
   import NumberInput from './lib/NumberInput.svelte';
   export let content;
   export let totalCarbon;
-  let minWidth = "300px";
-  let unlocked = false;
-  let variables = content.variables;
-
-  function getPanelState(appState) {
-    if (appState === content.name) {
-      unlocked = true;
-      return 'required';
-    } else if (unlocked) {
-      return 'active';
+  let panel = {
+    minWidth: "300px",
+    showingInfo: false,
+    state: 'hidden',
+    unlocked: false,
+    updateState: function (appState) {
+      if (appState === content.name) {
+        this.unlocked = true;
+        this.state = 'required';
+        return this;
+      } else if (this.unlocked) {
+        this.state = 'active';
+        return this;
       } else {
-      return 'hidden';
-    }
-  };
+        this.state = 'hidden';
+        return this;
+      }
+    },
+  }
   
-  $: panelState = getPanelState($appState);
+  $: panel = panel.updateState($appState);
 
 
   function parseLabel ( labelStr ) {
@@ -73,11 +79,10 @@
     return totalCarbon;
   }
   
-  // This stuff should stay in the component
-  for (let v=0; v < variables.length; v++){
-    variables[v].labelData = parseLabel(variables[v].label)
+  for (let v=0; v < content.variables.length; v++){
+    content.variables[v].labelData = parseLabel(content.variables[v].label)
   }
-  $: totalCarbon = calculateCarbon(variables);
+  $: totalCarbon = calculateCarbon(content.variables);
 </script>
 
 <style>
@@ -86,27 +91,32 @@
   }
 </style>
 
-<Panel state={panelState}>
-  {#each variables as variable}
-    <p>
-    {#each variable.labelData as l}
-      {#if l.type === 'dropdown'}
-        <Dropdown bind:value={l.selectedUnit}
-                  items={l.units}
-                  capitalize={l.capitalize}/>
-      {:else}
-        {l.value}
+<Panel state={panel.state}>
+  <div class="calculator" style={panel.showingInfo ? 'display: none;' : ''}>
+    {#each content.variables as variable}
+      <p>
+      {#each variable.labelData as l}
+        {#if l.type === 'dropdown'}
+          <Dropdown bind:value={l.selectedUnit}
+                    items={l.units}
+                    capitalize={l.capitalize}/>
+        {:else}
+          {l.value}
+        {/if}
+      {/each}
+      {#if $appState === 'Play'}
+          <span style="float: right;">{variable.value}</span>
+      {/if}
+      </p>
+      {#if variable.type === 'number' }
+        <NumberInput binAbout this panel Nextd:value={variable.value}
+                    minmax_value={variable.minmax}/>
       {/if}
     {/each}
-    {#if $appState === 'Play'}
-        <span style="float: right;">{variable.value}</span>
-    {/if}
-    </p>
-    {#if variable.type === 'number' }
-      <NumberInput bind:value={variable.value}
-                  minmax_value={variable.minmax}/>
-    {/if}
-  {/each}
-  <p>{ content.summary.replace('%', Math.round(totalCarbon.toString())) }</p>
-  <PanelFooter content={content}/>
+    <p>{ content.summary.replace('%', Math.round(totalCarbon.toString())) }</p>
+  </div>
+  <div class="info" style={panel.showingInfo ? '' : 'display: none;'}>
+    <SvelteMarkdown source={ content.about }/>
+  </div>
+  <PanelFooter content={content} bind:showInfo={panel.showingInfo}/>
 </Panel>
