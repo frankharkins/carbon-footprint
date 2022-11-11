@@ -108,7 +108,7 @@
     </div>
     {#if showFooter}
       <div class="footer">
-        <span class="about-button" on:click={flipPanel}>About this panel</span>
+        <span class="about-button" on:click={flipPanel}>How do we calculate this?</span>
             {#if $appState == name}
               <span on:click={nextAppState} class="next-button">Next</span>
         	{/if}

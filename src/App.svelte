@@ -36,6 +36,6 @@
      <MiniCalc content={calc} bind:totalCarbon={calc.carbon}/>
    {/each}
   <InfoPanel content={appContent.completionInstructions} hideUntil='Play'/>
-  <AboutPanel content={appContent.aboutPanel}/>
+  <AboutPanel content={appContent.aboutInfo}/>
  </div>
 </main>

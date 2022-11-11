@@ -5,7 +5,7 @@ calculators:
         type: number
         value: 0
         minmax: 30
-        kgco2pu: 0.22
+        kgco2pu: 0.2
         label:
           '[ km | miles ] travelled by car per [ week | year | month | day ]:'
       - name: bus/train
@@ -20,7 +20,7 @@ calculators:
         type: number
         value: 0
         minmax: 10
-        kgco2pu: 0.31
+        kgco2pu: 0.3
         label:
           '[ hours @ 800 | km | miles ] travelled by plane per [ year | month |
           week | day ]:'
@@ -29,17 +29,14 @@ calculators:
     about: |
       # How do we calculate travel emissions?
 
-      We estimate the emissions per mile for each mode of transport and
-      multiply it by the distance you enter (converting km to miles if needed).
+      For cars, we estimate ~0.2 kg CO2 per kilometer from assuming [14kg CO2
+      emitted per gallon](https://www.carbonindependent.org/17.html), and and
+      efficiency of [58 kilometers per
+      gallon](https://www.nimblefins.co.uk/cheap-car-insurance/average-mpg).
 
-      For cars, we estimate ~0.22 kg CO2 per kilometer. This comes from the average
-      [CO2 emissions per gallon](https://www.carbonindependent.org/17.html),
-      divided by the [average miles per gallon in the UK](
-      https://www.nimblefins.co.uk/cheap-car-insurance/average-mpg).
-
-      For buses and trains, we estimate ~0.1 kg CO2 per kilometer. We use the
-      estimates from [this page](https://www.carbonindependent.org/20.html) and
-      [this page](https://www.carbonindependent.org/21.html).
+      For buses and trains, we estimate ~0.1 kg CO2 per kilometer (sources
+      [here](https://www.carbonindependent.org/20.html) and
+      [here](https://www.carbonindependent.org/21.html)).
 
       For planes, we estimate ~0.3 kg CO2 per kilometer, also using estimates
       from [carbon independent](https://www.carbonindependent.org/22.html). To
@@ -112,6 +109,6 @@ completionInstructions : |
   have the biggest effect on your footprint. Can you find three things you can
   realistically change that have the biggest impact?
 
-aboutPanel:
+aboutInfo:
   description: By Frank Harkins
   githubLink: https://github.com/frankharkins/carbon-footprint
