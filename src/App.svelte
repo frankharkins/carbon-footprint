@@ -22,10 +22,10 @@
   margin: auto auto;
 }
 
-:global(h1 {
+:global(h1) {
     font-size: 1em;
     margin-top: 0;
-})
+}
 
 </style>
 

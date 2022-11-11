@@ -102,7 +102,7 @@ calculators:
 
       Numbers taken from [Carbon Independent](https://www.carbonindependent.org/15.html).
 
-completionInstructions : |
+completionInstructions: |
   # Complete
 
   You've finished the calculation, now adjust the sliders to see which variables
