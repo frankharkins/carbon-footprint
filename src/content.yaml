@@ -27,7 +27,7 @@ calculators:
 
     summary: 'Your travel emits ~%kg of CO2 per year.'
     about: |
-      ## How do we calculate travel emissions?
+      # How do we calculate travel emissions?
 
       We estimate the emissions per mile for each mode of transport and
       multiply it by the distance you enter (converting km to miles if needed).
@@ -79,7 +79,7 @@ calculators:
           '[ grams | ounces ] of pork bought per [ week | month | year | day ]:'
     summary: 'Your diet emits ~%kg of CO2 per year.'
     about: |
-      ## How do we calculate diet emissions?
+      # How do we calculate diet emissions?
 
       We used the mean CO2 equivalent emissions from
       [this paper](https://www.researchgate.net/publication/325532198_Reducing_food%27s_environmental_impacts_through_producers_and_consumer).
@@ -101,12 +101,12 @@ calculators:
 
     summary: 'Your household energy usage emits ~%kg of CO2 per year.'
     about: |
-      ## How do we calculate household emissions?
+      # How do we calculate household emissions?
 
       Numbers taken from [Carbon Independent](https://www.carbonindependent.org/15.html).
 
-completionNotification: |
-  ## Complete
+completionInstructions : |
+  # Complete
 
   You've finished the calculation, now adjust the sliders to see which variables
   have the biggest effect on your footprint. Can you find three things you can

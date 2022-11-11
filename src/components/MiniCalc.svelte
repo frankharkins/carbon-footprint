@@ -3,14 +3,12 @@
   import { getUnit } from '../utils.js';
   import SvelteMarkdown from 'svelte-markdown';
   import Panel from './lib/Panel.svelte';
-  import PanelFooter from './lib/PanelFooter.svelte';
   import Dropdown from './lib/Dropdown.svelte';
   import NumberInput from './lib/NumberInput.svelte';
   export let content;
   export let totalCarbon;
   let panel = {
     minWidth: "300px",
-    showingInfo: false,
     state: 'hidden',
     unlocked: false,
     updateState: function (appState) {
@@ -91,8 +89,8 @@
   }
 </style>
 
-<Panel state={panel.state}>
-  <div class="calculator" style={panel.showingInfo ? 'display: none;' : ''}>
+<Panel state={panel.state} name={content.name}>
+  <div slot="front">
     {#each content.variables as variable}
       <p>
       {#each variable.labelData as l}
@@ -109,14 +107,13 @@
       {/if}
       </p>
       {#if variable.type === 'number' }
-        <NumberInput binAbout this panel Nextd:value={variable.value}
+        <NumberInput bind:value={variable.value}
                     minmax_value={variable.minmax}/>
       {/if}
     {/each}
     <p>{ content.summary.replace('%', Math.round(totalCarbon.toString())) }</p>
   </div>
-  <div class="info" style={panel.showingInfo ? '' : 'display: none;'}>
+  <div slot="back" >
     <SvelteMarkdown source={ content.about }/>
   </div>
-  <PanelFooter content={content} bind:showInfo={panel.showingInfo}/>
 </Panel>

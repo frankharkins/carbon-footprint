@@ -6,12 +6,6 @@ APP_STATES.push('Play')
 
 export const appState = writable(APP_STATES[0])
 
-appState.subscribe((state) => {
-  if (state === 'Play') {
-    window.showPopup(appContent.completionNotification, 'Play')
-  }
-})
-
 export function nextAppState() {
   appState.update((state) => APP_STATES[APP_STATES.indexOf(state) + 1])
 }

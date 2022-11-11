@@ -4,6 +4,7 @@
   import MiniCalc from './components/MiniCalc.svelte'
   import Comparison from './components/Comparison.svelte'
   import Notification from './components/Notification.svelte'
+  import InfoPanel from './components/InfoPanel.svelte'
   import AboutPanel from './components/AboutPanel.svelte'
 
   // Handle carbon calculations
@@ -21,6 +22,11 @@
   margin: auto auto;
 }
 
+:global(h1 {
+    font-size: 1em;
+    margin-top: 0;
+})
+
 </style>
 
 <main>
@@ -29,6 +35,7 @@
    {#each appContent.calculators as calc}
      <MiniCalc content={calc} bind:totalCarbon={calc.carbon}/>
    {/each}
+  <InfoPanel content={appContent.completionInstructions} hideUntil='Play'/>
   <AboutPanel content={appContent.aboutPanel}/>
  </div>
 </main>

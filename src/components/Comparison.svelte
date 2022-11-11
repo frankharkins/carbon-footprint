@@ -17,6 +17,8 @@
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
+        z-index: 1000;
+        max-width: var(--max-app-size);
 	}
 
 	div.top-sticky:after {
@@ -27,10 +29,12 @@
 </style>
 
 <div class="top-sticky {($appState === 'Play') ? 'active' : 'hidden'}">
-    <Panel topSticky={true}>
-        Your footprint (~{Math.round((value/1000).toString())} tonnes of CO2 per year):
-		<Meter bind:value={value} max="{meterMax}" disabled="true"/>
-		UK average (~{ukAverage/1000} tonnes of CO2 per year):
-		<Meter value="10000" max="{meterMax}" disabled="true"/>
+    <Panel topSticky={true} showFooter={false}>
+        <div slot="front">
+          Your footprint (~{Math.round((value/1000).toString())} tonnes of CO2 per year):
+          <Meter bind:value={value} max="{meterMax}" disabled="true"/>
+          UK average (~{ukAverage/1000} tonnes of CO2 per year):
+          <Meter value="10000" max="{meterMax}" disabled="true"/>
+        </div>
 	</Panel>
 </div>
