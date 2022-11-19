@@ -105,9 +105,8 @@ calculators:
 completionInstructions: |
   # Complete
 
-  You've finished the calculation, now adjust the sliders to see which variables
-  have the biggest effect on your footprint. Can you find three things you can
-  realistically change that have the biggest impact?
+  Adjust the sliders to see which changes have the biggest effect. Try to find
+  one change you can realistically commit to.
 
 aboutInfo:
   description: By Frank Harkins

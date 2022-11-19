@@ -1,12 +1,27 @@
 # Carbon footprint calculator
 
-This is a small project to help me learn svelte, and maybe even make something
-useful. There are lots of carbon footprint calculators out there, but the idea
-here is to show users how their actions change their footprint in real time
-(instead of after submitting a form, or re-taking the quiz). This way, hopefully
-the user can get a feel for which changes have the biggest impact.
+This is a simple project to help me learn web development with [Svelte](https://svelte.dev/).
 
-## Running locally
+## Motivation
+
+Lots of people are willing to make lifestyle changes to reduce their carbon
+footprint, but can't easily _quantify_ the impact these changes. I believe this
+leads to well-meaning people worrying about largely inconsequential changes
+(e.g. turning lights off obsessively), and/or attempting a large number of
+lifestyle changes, which is stressful difficult to maintain.
+
+Secondly, the most important lesson from a carbon footprint calculator is what
+you can _change_ to make a difference. Most calculators I've tried do not allow
+you to see how different changes affect your footprint; you usually need to
+re-take the full test.
+
+We should be encouraging people to make the changes with the highest
+impact-to-effort ratio. A single change is much easier to manage, and in many
+cases can have a dramatic impact.
+
+## Contributing
+
+### Running locally
 
 To run locally, first clone the repo, then:
 
@@ -18,7 +33,7 @@ npm run dev
 
 To deploy, locally run `./deploy.sh` (you'll need to be on `main` and stash any changes first).
 
-## Editing the calculator
+### Editing the calculator
 
 If you think there's an error or significant inaccuracy in this calculator, you
 can make an issue, make PR to fix it, or make a fork with your own values. All
@@ -56,11 +71,3 @@ app, but here's a quick overview of how it works:
 - Each calculator also includes 'about' info, that we use to explain our
   sources, methods and assumptions to the user. Make sure to edit this when you
   edit the values.
-
-## To do:
-
-- [ ] Improve documentation
-  - [ ] Improve calculation explanations
-  - [ ] Add intro notification (inc. aims)
-- [x] Add more emission factors
-- [ ] Publish
