@@ -1,9 +1,7 @@
 <script>
-  import { appState } from './state.js';
   import appContent from "./content.yaml";
   import MiniCalc from './components/MiniCalc.svelte'
   import Comparison from './components/Comparison.svelte'
-  import Notification from './components/Notification.svelte'
   import InfoPanel from './components/InfoPanel.svelte'
   import AboutPanel from './components/AboutPanel.svelte'
 
