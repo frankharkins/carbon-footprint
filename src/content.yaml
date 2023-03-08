@@ -4,6 +4,7 @@ calculators:
       - name: car
         type: number
         value: 0
+        units: km
         minmax: 30
         kgco2pu: 0.2
         label:
@@ -11,6 +12,7 @@ calculators:
       - name: bus/train
         type: number
         value: 0
+        units: km
         minmax: 30
         kgco2pu: 0.1
         label:
@@ -19,6 +21,7 @@ calculators:
       - name: plane
         type: number
         value: 0
+        units: km
         minmax: 10
         kgco2pu: 0.3
         label:
@@ -48,6 +51,7 @@ calculators:
       - name: beef
         type: number
         value: 0
+        units: g
         minmax: 300
         kgco2pu: 0.5
         label:
@@ -55,6 +59,7 @@ calculators:
       - name: lamb
         type: number
         value: 0
+        units: g
         minmax: 300
         kgco2pu: 0.2
         label:
@@ -62,6 +67,7 @@ calculators:
       - name: cheese
         type: number
         value: 0
+        units: g
         minmax: 300
         kgco2pu: 0.1
         label:
@@ -70,6 +76,7 @@ calculators:
       - name: pork
         type: number
         value: 0
+        units: g
         minmax: 300
         kgco2pu: 0.07
         label:
@@ -86,12 +93,14 @@ calculators:
       - name: electric
         type: number
         value: 0
+        units: kWh
         minmax: 150
         kgco2pu: 0.31
         label: 'KWh of electricity used per [ month | year | week | day ]:'
       - name: gas
         type: number
         value: 0
+        units: kWh
         minmax: 600
         kgco2pu: 0.2
         label: 'KWh of gas used per [ month | year | week | day ]:'

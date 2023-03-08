@@ -87,6 +87,16 @@
   p {
       margin: 0;
   }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td, th {
+    text-align: left;
+    border: 1px solid var(--light-grey);
+    padding: 8px;
+  }
 </style>
 
 <Panel state={panel.state} name={content.name}>
@@ -115,5 +125,20 @@
   </div>
   <div slot="back" >
     <SvelteMarkdown source={ content.about }/>
+    <br>
+    <table>
+      <tr>
+        <th>variable</th>
+        <th>value</th>
+        <th>units</th>
+      </tr>
+      {#each content.variables as variable}
+        <tr>
+          <td>{variable.name}</td>
+          <td>{variable.kgco2pu}</td>
+          <td>kg CO2 / {variable.units}</td>
+        </tr>
+      {/each}
+    </table>
   </div>
 </Panel>

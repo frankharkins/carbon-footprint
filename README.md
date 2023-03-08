@@ -50,7 +50,8 @@ app, but here's a quick overview of how it works:
   this value should be:
   - km for distance,
   - years for time,
-  - grams for mass.
+  - grams for mass,
+  - kWh for energy.
 
   We have some special syntax that creates a dropdown box where users can change
   the input units, (e.g. `[ km | miles ]`). If the software recognizes a unit,
