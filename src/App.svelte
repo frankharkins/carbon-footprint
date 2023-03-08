@@ -7,8 +7,10 @@
 
   // Handle carbon calculations
   appContent.calculators.forEach( (calc) => calc["carbon"] = 0 );
-  $: meterValue = appContent.calculators.reduce(
-                             (partialSum, calc) => partialSum + calc.carbon, 0);
+  $: meterValue = ( appContent.baseEmissions
+                  + appContent.calculators.reduce(
+                    (partialSum, calc) => partialSum + calc.carbon, 0)
+  );
 </script>
 
 <style>

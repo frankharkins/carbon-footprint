@@ -72,3 +72,6 @@ app, but here's a quick overview of how it works:
 - Each calculator also includes 'about' info, that we use to explain our
   sources, methods and assumptions to the user. Make sure to edit this when you
   edit the values.
+
+- We summarize all other emission factors to be ~ 1 tonne CO2eq / year. This
+  value is set under `baseEmissions`.

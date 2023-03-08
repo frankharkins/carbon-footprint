@@ -1,3 +1,5 @@
+baseEmissions: 1100  # uncontrollable emission factors
+
 calculators:
   - name: Travel
     variables:
