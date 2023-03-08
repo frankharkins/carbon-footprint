@@ -2,10 +2,9 @@
 	export let disabled = false;
 	export let value = 30;
 	export let max = 1000;
-    let startValue = value;
+  export let startValue = value;
 
-    $: meterPct = (100*value/max).toString() + "%";
-    let initialValue = value;
+  $: meterPct = (100*value/max).toString() + "%";
 </script>
 
 <style>
