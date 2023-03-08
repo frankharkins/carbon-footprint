@@ -7,7 +7,7 @@ calculators:
         type: number
         value: 0
         units: km
-        minmax: 30
+        minmax: 100
         kgco2pu: 0.2
         label:
           '[ km | miles ] travelled by car per [ week | year | month | day ]:'
@@ -15,7 +15,7 @@ calculators:
         type: number
         value: 0
         units: km
-        minmax: 30
+        minmax: 100
         kgco2pu: 0.1
         label:
           '[ km | miles ] travelled by bus / train per [ week | year | month |
@@ -50,39 +50,40 @@ calculators:
 
   - name: Diet
     variables:
-      - name: beef
+      - name: beef and lamb
         type: number
         value: 0
         units: g
-        minmax: 300
-        kgco2pu: 0.5
+        minmax: 200
+        kgco2pu: 0.35
         label:
-          '[ grams | ounces ] of beef bought per [ week | month | year | day ]:'
-      - name: lamb
-        type: number
-        value: 0
-        units: g
-        minmax: 300
-        kgco2pu: 0.2
-        label:
-          '[ grams | ounces ] of lamb bought per [ week | month | year | day ]:'
-      - name: cheese
-        type: number
-        value: 0
-        units: g
-        minmax: 300
-        kgco2pu: 0.1
-        label:
-          '[ grams | ounces ] of cheese bought per [ week | month | year | day
-          ]:'
-      - name: pork
+          '[ grams | ounces ] of red meat bought per [ week | month | year | day ]:'
+      - name: pork, chicken, and fish
         type: number
         value: 0
         units: g
         minmax: 300
         kgco2pu: 0.07
         label:
-          '[ grams | ounces ] of pork bought per [ week | month | year | day ]:'
+          '[ grams | ounces ] of white meat and fish bought per [ week | month | year | day ]:'
+      - name: cheese
+        type: number
+        value: 0
+        units: g
+        minmax: 180
+        kgco2pu: 0.1
+        label:
+          '[ grams | ounces ] of cheese bought per [ week | month | year | day ]:'
+      - name: milk
+        type: number
+        value: 0
+        units: L
+        minmax: 2
+        kgco2pu: 3
+        label:
+          '[ liters @ 1 | pints @ 0.568] of milk bought per [ week | month | year | day ]'
+
+
     summary: 'Your diet emits ~%kg of CO2 per year.'
     about: |
       # How do we calculate diet emissions?
